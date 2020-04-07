@@ -3,9 +3,6 @@ const app = express();
 const port = process.env.PORT | 3000;
 
 //firebase stuff
-import * as firebase from "firebase/app";
-import "firebase/firestore";
-
 var firebaseConfig = {
     apiKey: "AIzaSyDvrgVpxLNe5PfbisbAXgGvFeheFvnRwl8",
     authDomain: "senior-design-b2b93.firebaseapp.com",
@@ -13,13 +10,11 @@ var firebaseConfig = {
     projectId: "senior-design-b2b93",
     storageBucket: "senior-design-b2b93.appspot.com",
     messagingSenderId: "439726316771",
-    appId: "app-id",
-    measurementId: "G-measurement-id",
+    appId: "1:439726316771:web:54a2b1f38dea07774b79d6",
+    measurementId: "G-RJHPMWLQEX"
 };
-
-var firebase = require("firebase/app");
-
-require("firebase/firestore");
+var firebase = require("firebase").initializeApp(firebaseConfig);
+var db = firebase.database();
 
 
 app.get('/login', (req, res) => {
