@@ -7,12 +7,12 @@ import * as firebase from "firebase/app";
 import "firebase/firestore";
 
 var firebaseConfig = {
-    apiKey: "api-key",
-    authDomain: "project-id.firebaseapp.com",
-    databaseURL: "https://project-id.firebaseio.com",
-    projectId: "project-id",
-    storageBucket: "project-id.appspot.com",
-    messagingSenderId: "sender-id",
+    apiKey: "AIzaSyDvrgVpxLNe5PfbisbAXgGvFeheFvnRwl8",
+    authDomain: "senior-design-b2b93.firebaseapp.com",
+    databaseURL: "https://senior-design-b2b93.firebaseio.com",
+    projectId: "senior-design-b2b93",
+    storageBucket: "senior-design-b2b93.appspot.com",
+    messagingSenderId: "439726316771",
     appId: "app-id",
     measurementId: "G-measurement-id",
 };
