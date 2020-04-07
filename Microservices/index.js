@@ -3,7 +3,23 @@ const app = express();
 const port = process.env.PORT | 3000;
 
 //firebase stuff
+import * as firebase from "firebase/app";
+import "firebase/firestore";
 
+var firebaseConfig = {
+    apiKey: "api-key",
+    authDomain: "project-id.firebaseapp.com",
+    databaseURL: "https://project-id.firebaseio.com",
+    projectId: "project-id",
+    storageBucket: "project-id.appspot.com",
+    messagingSenderId: "sender-id",
+    appId: "app-id",
+    measurementId: "G-measurement-id",
+};
+
+var firebase = require("firebase/app");
+
+require("firebase/firestore");
 
 
 app.get('/login', (req, res) => {
