@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT | 3000;
 
+//firebase stuff
+
+
+
 app.get('/login', (req, res) => {
     res.send('login!');
 });
