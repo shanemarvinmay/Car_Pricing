@@ -26,11 +26,22 @@ app.get('/login', (req, res) => {
 
 app.post('/signup', (req, res) => {
     // save user data 
-    res.send('signup !');
+    firebase.database().ref('users/' + userId).set({
+        firstName: req.query.firstName,
+        lastName: req.query.lastName,
+        username: req.query.username,
+        email: req.query.email,
+        password: req.query.password,
+        securityQuestion: req.query.securityQuestion,
+        securityAnswer: req.query.securityAnswer
+    })
+    
+    res.send('User is signed up!');
 });
 
 app.get('/forgot-password', (req, res) => {
     // look up password 
+    //return as json
     res.send('forgot password!');
 });
 
@@ -45,9 +56,17 @@ app.get('/lookup', (req, res) => {
     res.send('lookup !');
 });
 
-// end point for calc value of car 
+// end point for calc value of car
+app.get('/car-value', (req, res) => {
+    //get value of car from LR models
+    //return it as json
+});
 
 // end point for judging car 
+app.get('/car-info', (req, res) => {
+    //get info about car from CNN models
+    //return it as json
+});
 
 
 
