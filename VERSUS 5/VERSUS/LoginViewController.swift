@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
- /*
+ 
         passWord.addTarget(self, action: #selector(checkAndDisplayError(passWord:)), for: .editingChanged)
     }
     
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
             errorLabel.text = " "
         }
 
-   */
+   
     }
     /*
     //LoginUser
