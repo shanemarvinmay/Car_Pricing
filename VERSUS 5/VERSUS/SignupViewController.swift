@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import UIKit
+
+class SignupViewController: UIViewController {
+    
+
+func displayAlert(msgTitle:String, msgContent:String){
+       let alertController = UIAlertController(title: msgTitle, message: msgContent,
+                                               preferredStyle: .alert)
+       let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+       alertController.addAction(defaultAction)
+       
+       present(alertController, animated: true, completion: nil)
+   }
+
+}

@@ -10,17 +10,37 @@ import Foundation
 import UIKit
 
 class AccountViewController: UIViewController{
+    
+    @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var account: UIView!
     @IBOutlet weak var history: UIView!
+    
+    
+    
     @IBAction func switchView(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex{
+        case 0:
+            account.alpha = 1
+            history.alpha = 0
+            break
+        case 1:
+            account.alpha = 0
+            history.alpha = 1
+            break
+        default:
+            break
+        }
+        
+        /*
         if sender.selectedSegmentIndex == 0 {
             account.alpha = 1
             history.alpha = 0
         }
-        else {
+        else if sender.selectedSegmentIndex == 1 {
             account.alpha = 0
             history.alpha = 1
-        }
+        } */
     }
     @IBOutlet weak var circularImage: UIImageView!
     
@@ -39,7 +59,7 @@ class AccountViewController: UIViewController{
         
         //Make Circular Image for User
         circularImage.layer.masksToBounds = true
-           circularImage.layer.cornerRadius = circularImage.bounds.width / 2
+        circularImage.layer.cornerRadius = circularImage.bounds.width / 2
     }
        /* private func configStackView () {
             let stack = UIStackView(arrangedSubviews: buttons)
