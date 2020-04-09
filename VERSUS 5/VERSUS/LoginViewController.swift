@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
  */
         
 
-    //LoginUser
+    //LoginUser 
         func loginUser(_ sender: Any) {
         
         guard let _ = userName.text, userName.text?.count != 0 else {
@@ -46,7 +46,8 @@ class LoginViewController: UIViewController {
             else {
                 errorLabel.isHidden = false
                 errorLabel.text = "please enter password"
-        }
+       return
+            }
     }
         func didReceiveMemoryWarning() {
         super.viewDidLoad()
