@@ -31,42 +31,66 @@ app.get('/login', (req, res) => {
 
 app.post('/signup', (req, res) => {
     // save user data 
-    db.ref('users/' + userID).set({
-        firstName: req.query.firstName,
-        lastName: req.query.lastName,
-        username: req.query.username,
-        email: req.query.email,
-        password: req.query.password,
-        securityQuestion: req.query.securityQuestion,
-        securityAnswer: req.query.securityAnswer
-    })
-    
-    res.send('User is signed up!');
+    // db.ref('users/' + userID).set({
+    //     firstName: req.query.firstName,
+    //     lastName: req.query.lastName,
+    //     username: req.query.username,
+    //     email: req.query.email,
+    //     password: req.query.password,
+    //     securityQuestion: req.query.securityQuestion,
+    //     securityAnswer: req.query.securityAnswer
+    // })
+    // res.send('User is signed up!');
+
+    if (req.query.firstName && req.query.lastName && req.query.username && req.query.email 
+        && req.query.password && req.query.securityQuestion && req.query.securityAnswer) {
+        res.send('Can signUp');
+    } else {
+        res.send('Cannot signup');
+    }
 });
 
 app.get('/forgot-password', (req, res) => {
     //check if user exists
     //look up password 
     //return as json
-    res.send('forgot password!');
+
+    if (eq.query.username &&req.query.securityAnswer) {
+        res.send('Send forgotten password');
+    } else {
+        res.send('Cannot send forgotten password');
+    }
+    // res.send('forgot password!');
 });
 
-app.post('/save', (req, res) => {
+app.post('/save-car-info', (req, res) => {
     // save super important car info 
-    db.ref('cars/' + carID).set({
-        make: req.query.make,
-        model: req.query.model,
-        year: req.query.year,
-        mpg: req.query.mpg,
-        milage: req.query.milage
-    })
-    res.send('Car info saved!');
+    // db.ref('cars/' + carID).set({
+    //     make: req.query.make,
+    //     model: req.query.model,
+    //     year: req.query.year,
+    //     mpg: req.query.mpg,
+    //     milage: req.query.milage
+    // })
+    // res.send('Car info saved!');
+
+    if (req.query.make && req.query.model && req.query.year && req.query.mpg && req.query.milage) {
+        res.send('Send car price');
+    } else {
+        res.send('Cannot get car price');
+    }
 });
 
-app.get('/lookup', (req, res) => {
+app.get('/lookup-history', (req, res) => {
     // get user history 
     // return it as json 
-    res.send('lookup !');
+    // res.send('lookup !');
+
+    if (req.query.username) {
+        res.send('Send recent history');
+    } else {
+        res.send('Cannot send recent history');
+    }
 });
 
 // end point for calc value of car
