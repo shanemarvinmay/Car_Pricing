@@ -26,7 +26,7 @@ app.get('/login', (req, res) => {
 
 app.post('/signup', (req, res) => {
     // save user data 
-    firebase.database().ref('users/' + userId).set({
+    firebase.database().ref('users/' + userID).set({
         firstName: req.query.firstName,
         lastName: req.query.lastName,
         username: req.query.username,
@@ -47,7 +47,14 @@ app.get('/forgot-password', (req, res) => {
 
 app.post('/save', (req, res) => {
     // save super important car info 
-    res.send('save !');
+    firebaseConfig.database().ref('cars/' + carID).set({
+        make: req.query.make,
+        model: req.query.model,
+        year: req.query.year,
+        mpg: req.query.mpg,
+        milage: req.query.milage
+    })
+    res.send('Car info saved!');
 });
 
 app.get('/lookup', (req, res) => {
