@@ -18,15 +18,20 @@ const db = firebase.database();
 
 
 app.get('/login', (req, res) => {
+    if (req.query.username && req.query.password){
+        res.send('Can login');
+    } else {
+        res.send('Cannot login');
+    }
     // look up user 
     // check to make sure password matches 
     // if password matches, then return user json obj 
-    res.send('login!');
+    
 });
 
 app.post('/signup', (req, res) => {
     // save user data 
-    firebase.database().ref('users/' + userID).set({
+    db.ref('users/' + userID).set({
         firstName: req.query.firstName,
         lastName: req.query.lastName,
         username: req.query.username,
@@ -40,14 +45,15 @@ app.post('/signup', (req, res) => {
 });
 
 app.get('/forgot-password', (req, res) => {
-    // look up password 
+    //check if user exists
+    //look up password 
     //return as json
     res.send('forgot password!');
 });
 
 app.post('/save', (req, res) => {
     // save super important car info 
-    firebaseConfig.database().ref('cars/' + carID).set({
+    db.ref('cars/' + carID).set({
         make: req.query.make,
         model: req.query.model,
         year: req.query.year,
