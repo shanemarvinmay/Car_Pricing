@@ -13,7 +13,7 @@ import AVFoundation
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-   
+   //connections to storyboard: cameraview
     @IBOutlet weak var ImageView: UIImageView!
     @IBAction func takePic(_ sender: Any) {
         
@@ -33,6 +33,28 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             print(image.size)
  }
  
-}
+
+    }
+    
+    /* --------------------------------------------------------
+     self.imagePicker = [[UIImagePickerController alloc] init];
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.usingPopover = YES;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    sourceType = UIImagePickerControllerSourceTypeCamera;
+    self.usingPopover = NO;
+    }
+    [self.imagePicker setSourceType:sourceType];
+    self.imagePicker.allowsEditing = NO;
+    self.imagePicker.delegate = self;
+    if (sourceType != UIImagePickerControllerSourceTypeCamera) {
+    self.popover = [[UIPopoverController alloc] initWithContentViewController:self.imagePicker];
+    self.popover.delegate = self;
+    [self.popover presentPopoverFromRect:popoverFrame inView:self.view
+    permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    } else {
+    [self presentModalViewController:imagePicker animated:YES];
+    }
+    ------------------------------------------------------- */
 }
 

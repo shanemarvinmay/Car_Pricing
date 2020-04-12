@@ -84,7 +84,7 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             active_textFiled.text = current_arr[row]
         }
         /*
-        //create a toolbar
+        //create a toolbar -------------------------------------------------------------------------------------------------------------------
         func create_toolbar()
         {
             let toolbar = UIToolbar()
@@ -106,5 +106,5 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         {
             
         }
-     */
+     -------------------------------------------------------------------------------------------------------------------------------------- */
     }
