@@ -14,54 +14,37 @@ import AVFoundation
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
    //connections to storyboard: cameraview
-    @IBOutlet weak var ImageView: UIImageView!
-     override func viewDidLoad() {
-       super.viewDidLoad()
-         let vc = UIImagePickerController()
-           vc.sourceType = .camera
-           vc.allowsEditing = true
-           vc.delegate = self
-           present(vc, animated: true)
-           func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-               picker.dismiss(animated: true)
-               guard let image = info[.editedImage] as? UIImage else { print("No image found")
-                   return
-               }
-               print(image.size)
-    }
-    
 
-       }
-    //Given choice between camera and album selection
-    @IBAction func takePic(_ sender: Any) {
-        let actionSheet = UIAlertController(title: "Photo Source", message: "choose a source", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in}))
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in}))
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in}))    }
+    @IBOutlet weak var imageView: UIImageView!
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    }
+//Switching between camera and photos
+    @IBAction func SelectionBtn(_ sender: Any) {
+        let imagePickrController = UIImagePickerController()
+        imagePickrController.delegate = self
+        let actionSheet = UIAlertController(title: "Photo Source", message: "choose a source", preferredStyle: .actionSheet )
+                actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+                    imagePickrController.sourceType = .camera
+                    self.present(imagePickrController, animated: true, completion: nil)
+                    
+                }))
+                actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action: UIAlertAction) in
+                    imagePickrController.sourceType = .photoLibrary
+                    self.present(imagePickrController, animated: true, completion: nil)
+                }))
+                actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(actionSheet, animated: true, completion: nil)
+            }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+    
+    imageView.image = image
+        picker.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+                super.didReceiveMemoryWarning()
     }
-   
-    
-    /* --------------------------------------------------------
-     self.imagePicker = [[UIImagePickerController alloc] init];
-    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    self.usingPopover = YES;
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-    sourceType = UIImagePickerControllerSourceTypeCamera;
-    self.usingPopover = NO;
-    }
-    [self.imagePicker setSourceType:sourceType];
-    self.imagePicker.allowsEditing = NO;
-    self.imagePicker.delegate = self;
-    if (sourceType != UIImagePickerControllerSourceTypeCamera) {
-    self.popover = [[UIPopoverController alloc] initWithContentViewController:self.imagePicker];
-    self.popover.delegate = self;
-    [self.popover presentPopoverFromRect:popoverFrame inView:self.view
-    permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    } else {
-    [self presentModalViewController:imagePicker animated:YES];
-    }
-    ------------------------------------------------------- */
 }
-
+    
+  

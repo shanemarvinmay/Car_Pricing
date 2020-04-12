@@ -212,7 +212,7 @@
                     <connections>
                         <segue destination="XD4-pq-SjM" kind="relationship" relationship="viewControllers" id="5cT-Va-OHE"/>
                         <segue destination="BvF-aM-BW7" kind="relationship" relationship="viewControllers" id="6m5-Fo-b4R"/>
-                        <segue destination="uKJ-dj-nWG" kind="relationship" relationship="viewControllers" id="OaT-9b-3SU"/>
+                        <segue destination="0ku-9I-lUn" kind="relationship" relationship="viewControllers" id="12y-uI-QIe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myo-Xc-Fpa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -533,46 +533,41 @@
             </objects>
             <point key="canvasLocation" x="-3854" y="-352"/>
         </scene>
-        <!--Camera -->
-        <scene sceneID="FVc-Pd-p1Z">
+        <!--Camera-->
+        <scene sceneID="ACP-fg-CpQ">
             <objects>
-                <viewController id="uKJ-dj-nWG" customClass="CameraViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O2n-mc-fcb" customClass="CameraViewController">
+                <viewController title="Camera" id="0ku-9I-lUn" customClass="CameraViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QCn-7G-cyP" userLabel="CAMERA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M7d-Yf-1Kh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7d-Yf-1Kh">
+                                <rect key="frame" x="0.0" y="99" width="414" height="466"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPO-zE-FNT">
-                                <rect key="frame" x="165" y="694.5" width="85" height="70"/>
+                                <rect key="frame" x="165" y="590" width="85" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="tintColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" backgroundImage="largecircle.fill.circle" catalog="system">
                                     <color key="titleColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="takePic:" destination="O2n-mc-fcb" eventType="touchUpInside" id="OIK-kL-yU5"/>
+                                    <action selector="SelectionBtn:" destination="0ku-9I-lUn" eventType="touchUpInside" id="eVb-IJ-Hro"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="M7d-Yf-1Kh" firstAttribute="leading" secondItem="vfE-6x-XFa" secondAttribute="leading" id="M3M-bT-rSz"/>
-                            <constraint firstItem="M7d-Yf-1Kh" firstAttribute="top" secondItem="vfE-6x-XFa" secondAttribute="top" id="VJX-Ks-EOu"/>
-                            <constraint firstItem="vfE-6x-XFa" firstAttribute="trailing" secondItem="M7d-Yf-1Kh" secondAttribute="trailing" id="iOf-qd-Mrv"/>
-                            <constraint firstItem="vfE-6x-XFa" firstAttribute="bottom" secondItem="M7d-Yf-1Kh" secondAttribute="bottom" id="vXT-GA-b2Y"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="vfE-6x-XFa"/>
-                        <connections>
-                            <outlet property="ImageView" destination="M7d-Yf-1Kh" id="HUs-j1-8JF"/>
-                        </connections>
+                        <viewLayoutGuide key="safeArea" id="Sgp-rH-YbK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera " image="camera.on.rectangle" catalog="system" id="H5P-lc-Kob"/>
+                    <tabBarItem key="tabBarItem" title="CAMERA" image="camera" catalog="system" id="0yn-W3-leX"/>
+                    <connections>
+                        <outlet property="imageView" destination="M7d-Yf-1Kh" id="A8v-uq-QrT"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8h-Pg-zgC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3LB-iB-VS7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2625" y="459"/>
+            <point key="canvasLocation" x="-1665.217391304348" y="450.66964285714283"/>
         </scene>
         <!--Forgot View Controller-->
         <scene sceneID="j5C-cn-pqP">
@@ -873,7 +868,7 @@
         <image name="arrow.left.to.line" catalog="system" width="64" height="50"/>
         <image name="arrow.right.circle" catalog="system" width="64" height="60"/>
         <image name="backward.end" catalog="system" width="64" height="60"/>
-        <image name="camera.on.rectangle" catalog="system" width="64" height="48"/>
+        <image name="camera" catalog="system" width="64" height="48"/>
         <image name="car" catalog="system" width="64" height="46"/>
         <image name="largecircle.fill.circle" catalog="system" width="64" height="60"/>
         <image name="lincoln " width="512" height="286"/>
