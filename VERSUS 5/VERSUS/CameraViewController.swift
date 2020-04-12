@@ -25,9 +25,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePickrController.delegate = self
         let actionSheet = UIAlertController(title: "Photo Source", message: "choose a source", preferredStyle: .actionSheet )
                 actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+                    if UIImagePickerController.isSourceTypeAvailable(.camera){
                     imagePickrController.sourceType = .camera
                     self.present(imagePickrController, animated: true, completion: nil)
-                    
+                    }
+                    else {
+                        print("Camera is Unavailable")
+                    }
                 }))
                 actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action: UIAlertAction) in
                     imagePickrController.sourceType = .photoLibrary
