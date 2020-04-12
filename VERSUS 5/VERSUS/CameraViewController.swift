@@ -15,26 +15,33 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
    //connections to storyboard: cameraview
     @IBOutlet weak var ImageView: UIImageView!
-    @IBAction func takePic(_ sender: Any) {
-        
+     override func viewDidLoad() {
+       super.viewDidLoad()
+         let vc = UIImagePickerController()
+           vc.sourceType = .camera
+           vc.allowsEditing = true
+           vc.delegate = self
+           present(vc, animated: true)
+           func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+               picker.dismiss(animated: true)
+               guard let image = info[.editedImage] as? UIImage else { print("No image found")
+                   return
+               }
+               print(image.size)
     }
-    override func viewDidLoad() {
-    super.viewDidLoad()
-      let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.allowsEditing = true
-        vc.delegate = self
-        present(vc, animated: true)
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            picker.dismiss(animated: true)
-            guard let image = info[.editedImage] as? UIImage else { print("No image found")
-                return
-            }
-            print(image.size)
- }
- 
+    
 
+       }
+    //Given choice between camera and album selection
+    @IBAction func takePic(_ sender: Any) {
+        let actionSheet = UIAlertController(title: "Photo Source", message: "choose a source", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in}))
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in}))
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in}))    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
+   
     
     /* --------------------------------------------------------
      self.imagePicker = [[UIImagePickerController alloc] init];
