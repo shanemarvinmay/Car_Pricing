@@ -55,7 +55,7 @@ app.get('/forgot-password', (req, res) => {
     //look up password 
     //return as json
 
-    if (eq.query.username &&req.query.securityAnswer) {
+    if (req.query.username && req.query.securityAnswer) {
         res.send('Send forgotten password');
     } else {
         res.send('Cannot send forgotten password');
@@ -114,9 +114,6 @@ app.get('/car-info', (req, res) => {
         res.send('Cannot get car make, model, year');
     }
 });
-
-
-
 
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
