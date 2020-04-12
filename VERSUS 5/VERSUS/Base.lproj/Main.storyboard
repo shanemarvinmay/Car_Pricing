@@ -546,7 +546,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPO-zE-FNT">
                                 <rect key="frame" x="165" y="694.5" width="85" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="tintColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" backgroundImage="largecircle.fill.circle" catalog="system">
                                     <color key="titleColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -884,7 +884,6 @@
         <image name="trouble" width="540" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tcg-vD-oMT"/>
         <segue reference="cJZ-3t-DEV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
