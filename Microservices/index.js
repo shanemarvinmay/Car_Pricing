@@ -97,12 +97,22 @@ app.get('/lookup-history', (req, res) => {
 app.get('/car-value', (req, res) => {
     //get value of car from LR models
     //return it as json
+    if (req.query.make && req.query.model && req.query.year && req.query.mpg && req.query.milage) {
+        res.send('get car price');
+    } else {
+        res.send('Cannot get car price');
+    }
 });
 
 // end point for judging car 
 app.get('/car-info', (req, res) => {
     //get info about car from CNN models
     //return it as json
+    if (req.query.carImage) {
+        res.send('Send car make, model, year');
+    } else {
+        res.send('Cannot get car make, model, year');
+    }
 });
 
 
