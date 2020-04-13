@@ -548,10 +548,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPO-zE-FNT">
-                                <rect key="frame" x="165" y="590" width="85" height="70"/>
+                                <rect key="frame" x="146" y="573" width="123" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="tintColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" backgroundImage="largecircle.fill.circle" catalog="system">
+                                <state key="normal" title="Choose Option">
                                     <color key="titleColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -872,7 +872,6 @@
         <image name="backward.end" catalog="system" width="64" height="60"/>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="car" catalog="system" width="64" height="46"/>
-        <image name="largecircle.fill.circle" catalog="system" width="64" height="60"/>
         <image name="lincoln " width="512" height="286"/>
         <image name="orange" width="518" height="253"/>
         <image name="person" catalog="system" width="64" height="58"/>
