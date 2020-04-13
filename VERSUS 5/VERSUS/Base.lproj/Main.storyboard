@@ -89,6 +89,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="EXPLORE" image="car" catalog="system" id="hCd-xg-7Sy"/>
                     <connections>
+                        <outlet property="mileage" destination="Vkt-Ph-rlu" id="dZp-0S-dAb"/>
                         <outlet property="milesPERGAL" destination="KzF-x5-4Kw" id="Yh8-94-q0a"/>
                         <outlet property="picker1TextField" destination="A7G-bo-mqr" id="v0T-Qj-ekm"/>
                         <outlet property="pickerTextField" destination="ZdM-X6-dpM" id="2HT-X5-aYz"/>

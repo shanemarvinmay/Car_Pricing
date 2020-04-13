@@ -7,69 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D4EDBC2-792E-4623-A650-BA79D39A66A6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VERSUS/ExploreViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "ExploreViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "4D4EDBC2-792E-4623-A650-BA79D39A66A6 - 669bde9309d24657"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VERSUS.ExploreViewController.Model.getter : Swift.Array&lt;Swift.String&gt;"
-                  moduleName = "VERSUS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/VERSUS%205/VERSUS/ExploreViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  uuid = "4D4EDBC2-792E-4623-A650-BA79D39A66A6 - 85a3755ffceba5e5"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VERSUS.ExploreViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; VERSUS.ExploreViewController"
-                  moduleName = "VERSUS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/VERSUS%205/VERSUS/ExploreViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "2292">
-               </Location>
-               <Location
-                  uuid = "4D4EDBC2-792E-4623-A650-BA79D39A66A6 - d1829dba964a166e"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VERSUS.ExploreViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;VERSUS.ExploreViewController&gt;"
-                  moduleName = "VERSUS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/VERSUS%205/VERSUS/ExploreViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "2230">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3E5ED7FB-54A0-4DFD-9FDE-AF6ACF4B7910"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -77,55 +14,118 @@
             filePath = "VERSUS/ExploreViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "ExploreViewController"
             landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "3E5ED7FB-54A0-4DFD-9FDE-AF6ACF4B7910 - 175b36fb3895d68b"
+                  uuid = "3E5ED7FB-54A0-4DFD-9FDE-AF6ACF4B7910 - 5aaa2499b3772df2"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "VERSUS.ExploreViewController.Make.getter : Swift.Array&lt;Swift.String&gt;"
                   moduleName = "VERSUS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/VERSUS%205/VERSUS/ExploreViewController.swift"
+                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/ExploreViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
                   offsetFromSymbolStart = "52">
                </Location>
                <Location
-                  uuid = "3E5ED7FB-54A0-4DFD-9FDE-AF6ACF4B7910 - 85a3755ffceba5e5"
+                  uuid = "3E5ED7FB-54A0-4DFD-9FDE-AF6ACF4B7910 - c852673d77095e9c"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "VERSUS.ExploreViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; VERSUS.ExploreViewController"
                   moduleName = "VERSUS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/VERSUS%205/VERSUS/ExploreViewController.swift"
+                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/ExploreViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
                   offsetFromSymbolStart = "376">
                </Location>
                <Location
-                  uuid = "3E5ED7FB-54A0-4DFD-9FDE-AF6ACF4B7910 - d1829dba964a166e"
+                  uuid = "3E5ED7FB-54A0-4DFD-9FDE-AF6ACF4B7910 - 9c738fd81da8ed17"
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "VERSUS.ExploreViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;VERSUS.ExploreViewController&gt;"
                   moduleName = "VERSUS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/VERSUS%205/VERSUS/ExploreViewController.swift"
+                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/ExploreViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
                   offsetFromSymbolStart = "314">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30DD4541-AF00-4214-ADAE-BFB67B35A2A2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VERSUS/ExploreViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "ExploreViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "30DD4541-AF00-4214-ADAE-BFB67B35A2A2 - 2b6accf18230bd2e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VERSUS.ExploreViewController.Model.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "VERSUS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/ExploreViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "30DD4541-AF00-4214-ADAE-BFB67B35A2A2 - c852673d77095e9c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VERSUS.ExploreViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; VERSUS.ExploreViewController"
+                  moduleName = "VERSUS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/ExploreViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "2291">
+               </Location>
+               <Location
+                  uuid = "30DD4541-AF00-4214-ADAE-BFB67B35A2A2 - 9c738fd81da8ed17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VERSUS.ExploreViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;VERSUS.ExploreViewController&gt;"
+                  moduleName = "VERSUS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/ExploreViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "2229">
                </Location>
             </Locations>
          </BreakpointContent>
