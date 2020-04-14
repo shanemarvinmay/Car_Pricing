@@ -10,19 +10,22 @@ import Foundation
 import UIKit
 class Validation {
     
-    
-   public func validateMPG(milesPERGAL: String) ->Bool {
+    //MPG validaton section
+   public func validateMilesPG(milesPergal: String) ->Bool {
     let milesPERGALRegex = "^[0-9]*$"
-    let trimmedString = milesPERGAL.trimmingCharacters(in: .whitespaces)
+    let trimmedString = milesPergal.trimmingCharacters(in: .whitespaces)
     let validateMPG = NSPredicate(format: "SELF MATCHES %@", milesPERGALRegex)
     let isValidateMPG = validateMPG.evaluate(with: trimmedString)
     return isValidateMPG
     }
-    public func validateMilage(mileage: String) -> Bool {
-        let mileageRegex = " ^[0-9]*$"
-        let trimmedString = mileage.trimmingCharacters(in: .whitespaces)
+    
+    //Mileage Validation section
+    public func validateMileage1(mileAge: String) -> Bool {
+        let mileageRegex = "^[0-9]*$"
+        let trimmedString = mileAge.trimmingCharacters(in: .whitespaces)
         let validateMilage = NSPredicate(format: "SELF MATCHES %@",mileageRegex )
         let isValidateMileage = validateMilage.evaluate(with: trimmedString)
         return isValidateMileage
 }
 }
+

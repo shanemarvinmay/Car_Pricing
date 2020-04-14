@@ -42,6 +42,19 @@ class ExploreViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
         guard let mpg = milesPERGAL.text, let Mileage = mileage.text else {
             return
         }
+        let isValidateMPG = self.validation.validateMilesPG(milesPergal: mpg)
+        if (isValidateMPG == false) {
+            print("Incorrect: Please enter a valid number")
+            return
+        }
+        let isValidateMilage = self.validation.validateMileage1(mileAge: Mileage)
+        if (isValidateMilage == false){
+            print("Incorrect: Please enter a valid number")
+            return
+        }
+        if(isValidateMPG == true || isValidateMilage == true){
+            print("correct")
+        }
     }
     
         override func viewDidLoad() {
