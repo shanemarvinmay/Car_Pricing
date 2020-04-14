@@ -30,9 +30,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="mpg:" destination="BvF-aM-BW7" eventType="editingDidEnd" id="uF3-GW-3DU"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A7G-bo-mqr">
                                 <rect key="frame" x="27" y="461" width="350" height="34"/>
@@ -66,7 +63,6 @@
                                 </state>
                                 <connections>
                                     <action selector="calcValidate:" destination="BvF-aM-BW7" eventType="touchUpInside" id="DOn-dX-MS8"/>
-                                    <action selector="valueCalc:" destination="BvF-aM-BW7" eventType="touchUpInside" id="iTh-J4-lmx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INPUT CAR INFORMATION TO GET THE VALUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgz-Dp-lCs">
