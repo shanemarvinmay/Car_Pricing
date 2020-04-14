@@ -65,6 +65,7 @@
                                     <color key="titleColor" red="0.85458675011452001" green="0.35071620344736493" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="calcValidate:" destination="BvF-aM-BW7" eventType="touchUpInside" id="DOn-dX-MS8"/>
                                     <action selector="valueCalc:" destination="BvF-aM-BW7" eventType="touchUpInside" id="iTh-J4-lmx"/>
                                 </connections>
                             </button>

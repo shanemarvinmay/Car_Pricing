@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import Firebase
+import UIKit
 class Validation {
+    
+    
    public func validateMPG(milesPERGAL: String) ->Bool {
     let milesPERGALRegex = "Enter Regex String "
     let trimmedString = milesPERGAL.trimmingCharacters(in: .whitespaces)
-    let validationMPG = NSPredicate(format: "SELF MATCHES %@", milesPERGALRegex)
-    let isValidateMPG = validationMPG.evaluate(with: trimmedString)
+    let validateMPG = NSPredicate(format: "SELF MATCHES %@", milesPERGALRegex)
+    let isValidateMPG = validateMPG.evaluate(with: trimmedString)
     return isValidateMPG
     }
     public func validateMilage(mileage: String) -> Bool {
@@ -21,5 +25,5 @@ class Validation {
         let validateMilage = NSPredicate(format: "SELF MATCHES %@",mileageRegex )
         let isValidateMileage = validateMilage.evaluate(with: trimmedString)
         return isValidateMileage
-    }
+}
 }

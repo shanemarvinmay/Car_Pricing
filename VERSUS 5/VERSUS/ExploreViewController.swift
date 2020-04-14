@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import Firebase
 import UIKit
 
+
 class ExploreViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
+   
     //Create an alert when you calculate value from given inputs
     @IBAction func valueCalc(_ sender: UIButton) {
     let alertController = UIAlertController(title: "The Value Is", message: "$16,400", preferredStyle: UIAlertController.Style.alert)
@@ -32,12 +35,22 @@ class ExploreViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
         var current_arr : [String] = []
         //Hold current text
         var active_textFiled : UITextField!
-    
+ 
+    var validation = Validation()
     @IBOutlet weak var milesPERGAL: UITextField!
     @IBOutlet weak var mileage: UITextField!
+    @IBAction func calcValidate(_ sender: Any) {
+        guard let mpg = milesPERGAL.text, let Mileage = mileage.text else {
+            return
+        }
+    }
     
         override func viewDidLoad() {
         super.viewDidLoad()
+            
+            
+
+
             //assign delegates
             picker1TextField.delegate = self
             pickerTextField.delegate = self
@@ -59,7 +72,9 @@ class ExploreViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
             car_PickerView.reloadAllComponents()
             return true
             }
-        }
+    
+            
+    }
                       func numberOfComponents(in pickerView: UIPickerView) -> Int {
                           return 1
                       }
