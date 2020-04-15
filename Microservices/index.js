@@ -2,6 +2,15 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT | 3000;
 
+//heroku stuff
+// var http = require('http')
+
+// http.createServer(function (request, response) {
+//     response.writeHead(200, {"Content-Type": "textplain"})
+//     response.end("Hello World\n")
+// }).listen(process.env.PORT)
+
+
 //firebase stuff
 const firebaseConfig = {
     apiKey: "AIzaSyDvrgVpxLNe5PfbisbAXgGvFeheFvnRwl8",
@@ -16,6 +25,9 @@ const firebaseConfig = {
 const firebase = require("firebase").initializeApp(firebaseConfig);
 const db = firebase.database();
 
+app.get('/', (req, res) => {
+    res.send('root end point reached');
+});
 
 app.get('/login', (req, res) => {
     if (req.query.username && req.query.password){
