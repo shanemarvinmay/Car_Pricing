@@ -1,15 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT | 3000;
-
-//heroku stuff
-// var http = require('http')
-
-// http.createServer(function (request, response) {
-//     response.writeHead(200, {"Content-Type": "textplain"})
-//     response.end("Hello World\n")
-// }).listen(process.env.PORT)
-
+const port = process.env.PORT || 3000;
 
 //firebase stuff
 const firebaseConfig = {
@@ -27,6 +18,7 @@ const db = firebase.database();
 
 app.get('/', (req, res) => {
     res.send('root end point reached');
+    console.log("Get hit");
 });
 
 app.get('/login', (req, res) => {
@@ -43,23 +35,24 @@ app.get('/login', (req, res) => {
 
 app.post('/signup', (req, res) => {
     // save user data 
-    // db.ref('users/' + userID).set({
-    //     firstName: req.query.firstName,
-    //     lastName: req.query.lastName,
-    //     username: req.query.username,
-    //     email: req.query.email,
-    //     password: req.query.password,
-    //     securityQuestion: req.query.securityQuestion,
-    //     securityAnswer: req.query.securityAnswer
-    // })
-    // res.send('User is signed up!');
+    db.ref('users/' + username).set({
+        firstName: req.query.firstName,
+        lastName: req.query.lastName,
+        username: req.query.username,
+        email: req.query.email,
+        password: req.query.password,
+        securityQuestion: req.query.securityQuestion,
+        securityAnswer: req.query.securityAnswer
+    })
+    console.log('hit boom');
+    res.send('User is signed up!');
 
-    if (req.query.firstName && req.query.lastName && req.query.username && req.query.email 
-        && req.query.password && req.query.securityQuestion && req.query.securityAnswer) {
-        res.send('Can signUp');
-    } else {
-        res.send('Cannot signup');
-    }
+    // if (req.query.firstName && req.query.lastName && req.query.username && req.query.email 
+    //     && req.query.password && req.query.securityQuestion && req.query.securityAnswer) {
+    //     res.send('Can signUp');
+    // } else {
+    //     res.send('Cannot signup');
+    // }
 });
 
 app.get('/forgot-password', (req, res) => {
