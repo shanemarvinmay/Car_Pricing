@@ -9,23 +9,21 @@
 import Foundation
 import UIKit
 class Validation {
-    
     //MPG validaton section
-   public func validateMilesPG(milesPergal: String) ->Bool {
-    let milesPERGALRegex = "^[0-9]*$"
-    let trimmedString = milesPergal.trimmingCharacters(in: .whitespaces)
-    let validateMPG = NSPredicate(format: "SELF MATCHES %@", milesPERGALRegex)
-    let isValidateMPG = validateMPG.evaluate(with: trimmedString)
-    return isValidateMPG
+       public func validateMilesPG(milesPergal: String) ->Bool {
+        let milesPERGALRegex = try! NSRegularExpression(pattern: "^[0-9]*$")
+        let trimmedString = milesPergal.trimmingCharacters(in: .whitespaces)
+        let validateMPG = NSPredicate(format: "SELF MATCHES %@", milesPERGALRegex)
+        let isValidateMPG = validateMPG.evaluate(with: trimmedString)
+        return isValidateMPG
+        }
+        
+        //Mileage Validation section
+        public func validateMileage1(mileAge: String) -> Bool {
+            let mileageRegex = try! NSRegularExpression(pattern: "^[0-9]*$")
+            let trimmedString = mileAge.trimmingCharacters(in: .whitespaces)
+            let validateMilage = NSPredicate(format: "SELF MATCHES %@",mileageRegex )
+            let isValidateMileage = validateMilage.evaluate(with: trimmedString)
+            return isValidateMileage
     }
-    
-    //Mileage Validation section
-    public func validateMileage1(mileAge: String) -> Bool {
-        let mileageRegex = "^[0-9]*$"
-        let trimmedString = mileAge.trimmingCharacters(in: .whitespaces)
-        let validateMilage = NSPredicate(format: "SELF MATCHES %@",mileageRegex )
-        let isValidateMileage = validateMilage.evaluate(with: trimmedString)
-        return isValidateMileage
-}
-}
-
+    }

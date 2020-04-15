@@ -32,7 +32,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A7G-bo-mqr">
-                                <rect key="frame" x="27" y="461" width="350" height="34"/>
+                                <rect key="frame" x="27" y="460" width="350" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -62,7 +62,7 @@
                                     <color key="titleColor" red="0.85458675011452001" green="0.35071620344736493" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="calcValidate:" destination="BvF-aM-BW7" eventType="touchUpInside" id="DOn-dX-MS8"/>
+                                    <action selector="valueCalc:" destination="BvF-aM-BW7" eventType="touchUpInside" id="ovC-fV-RXd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INPUT CAR INFORMATION TO GET THE VALUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgz-Dp-lCs">
@@ -80,21 +80,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bez-Mx-P98">
+                                <rect key="frame" x="158" y="680" width="98" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Ford"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.56772828102111816" green="0.087049059569835663" blue="0.12748110294342041" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="LhX-l1-dd2"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="EXPLORE" image="car" catalog="system" id="hCd-xg-7Sy"/>
                     <connections>
-                        <outlet property="mileage" destination="Vkt-Ph-rlu" id="dZp-0S-dAb"/>
-                        <outlet property="milesPERGAL" destination="KzF-x5-4Kw" id="Yh8-94-q0a"/>
-                        <outlet property="picker1TextField" destination="A7G-bo-mqr" id="v0T-Qj-ekm"/>
-                        <outlet property="pickerTextField" destination="ZdM-X6-dpM" id="2HT-X5-aYz"/>
+                        <outlet property="picker1TextField" destination="A7G-bo-mqr" id="vvW-BR-sFb"/>
+                        <outlet property="pickerTextField" destination="ZdM-X6-dpM" id="8j2-xH-sb3"/>
+                        <outletCollection property="validateMPG" destination="KzF-x5-4Kw" collectionClass="NSMutableArray" id="dR6-Gz-rny"/>
+                        <outletCollection property="validateMileage" destination="Vkt-Ph-rlu" collectionClass="NSMutableArray" id="gmt-h9-cDc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kru-RE-2u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3830" y="451"/>
+            <point key="canvasLocation" x="-3830.434782608696" y="450.66964285714283"/>
         </scene>
         <!--ACCOUNT-->
         <scene sceneID="9pq-Ol-UVb">
@@ -254,7 +259,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="XBC-7P-VpH" kind="modal" id="hsZ-eC-oht"/>
+                                    <segue destination="XBC-7P-VpH" kind="show" id="VYR-LM-t7G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jix-o6-0mK">
@@ -527,6 +532,10 @@
                         <viewLayoutGuide key="safeArea" id="c44-Pb-eQr"/>
                     </view>
                     <navigationItem key="navigationItem" id="hUG-M5-mwc"/>
+                    <connections>
+                        <outlet property="passWord" destination="VCT-mK-Vru" id="qd4-I0-WLd"/>
+                        <outlet property="userName" destination="Wk9-tZ-x5w" id="Etr-B4-KoI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwT-I2-ny8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
