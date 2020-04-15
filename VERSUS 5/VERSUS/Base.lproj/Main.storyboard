@@ -84,6 +84,9 @@
                                 <rect key="frame" x="158" y="680" width="98" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Ford"/>
+                                <connections>
+                                    <action selector="validateBtn:" destination="BvF-aM-BW7" eventType="touchUpInside" id="aBT-1F-xm5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.56772828102111816" green="0.087049059569835663" blue="0.12748110294342041" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

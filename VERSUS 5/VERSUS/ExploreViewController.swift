@@ -10,10 +10,30 @@ import Foundation
 import UIKit
 
 class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
- 
+ var validation = Validation()
     @IBOutlet var validateMPG: [UITextField]!
     @IBOutlet var validateMileage: [UITextField]!
-    //Create an alert when you calculate value from given inputs
+    
+        
+    @IBAction func validateBtn(_ sender: Any) {
+        guard let milespergallon = validateMPG.text, let mileage = validateMileage.text else {
+                return
+            }
+            let isValidateMPG = self.validateMPG(milesPergal: milespergallon)
+            if (isValidateMPG == false) {
+                print(" ")
+                return
+            }
+            let isValidateMileage = self.validateMileage(mileAge: mileage)
+            if (isValidateMileage == false) {
+                print(" ")
+                return
+            }
+            if(isValidateMPG == true || isValidateMileage == true){
+            print("Click On Calculator")
+        }
+        
+    }    //Create an alert when you calculate value from given inputs
     @IBAction func valueCalc(_ sender: UIButton)
     {
         let alertController = UIAlertController(title: "The Value Is", message: "$16,400", preferredStyle: UIAlertController.Style.alert)
@@ -83,34 +103,6 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         active_textFiled.text = current_arr[row]
     }
     
-  
 
-
-
-
-
-
-
-//MPG validaton section
-   public func validateMilesPG(milesPergal: String) ->Bool {
-    let milesPERGALRegex = try! NSRegularExpression(pattern: "^[0-9]*$")
-    let trimmedString = milesPergal.trimmingCharacters(in: .whitespaces)
-    let validateMPG = NSPredicate(format: "SELF MATCHES %@", milesPERGALRegex)
-    let isValidateMPG = validateMPG.evaluate(with: trimmedString)
-    return isValidateMPG
-    }
-    
-    //Mileage Validation section
-    public func validateMileage1(mileAge: String) -> Bool {
-        let mileageRegex = try! NSRegularExpression(pattern: "^[0-9]*$")
-        let trimmedString = mileAge.trimmingCharacters(in: .whitespaces)
-        let validateMilage = NSPredicate(format: "SELF MATCHES %@",mileageRegex )
-        let isValidateMileage = validateMilage.evaluate(with: trimmedString)
-        return isValidateMileage
 }
-}
-
-
-
-
 
