@@ -11,20 +11,21 @@ import UIKit
 
 class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
  var validation = Validation()
-    @IBOutlet var validateMPG: [UITextField]!
-    @IBOutlet var validateMileage: [UITextField]!
+
+    @IBOutlet weak var validateMPGtextfield: UITextField!
+    @IBOutlet weak var validateMileagetextfield: UITextField!
     
         
     @IBAction func validateBtn(_ sender: Any) {
-        guard let milespergallon = validateMPG.text, let mileage = validateMileage.text else {
+        guard let milespergallon = validateMPGtextfield.text, let mileage = validateMileagetextfield.text else {
                 return
             }
-            let isValidateMPG = self.validateMPG(milesPergal: milespergallon)
+        let isValidateMPG = self.validation.validateMilesPG(milesPergal: milespergallon)
             if (isValidateMPG == false) {
                 print(" ")
                 return
             }
-            let isValidateMileage = self.validateMileage(mileAge: mileage)
+        let isValidateMileage = self.validation.validateMileage1(mileAge: mileage)
             if (isValidateMileage == false) {
                 print(" ")
                 return
