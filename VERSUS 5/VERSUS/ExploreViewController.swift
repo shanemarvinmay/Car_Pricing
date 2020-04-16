@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-    //Adding Ajax for connection - get code
+    /* Adding Ajax for connection - get code
     let  url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?make=&quot;&quot;&model=&quot;&quot;&year=&quot;&quot;&mpg=&quot;&quot;&milage=")!
     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         if let error = error{
@@ -26,6 +26,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         }
     }
     task.resume()
+    */
     //Validatin for MPG and Mileage Section 
  var validation = Validation()
 
@@ -54,10 +55,23 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }    //Create an alert when you calculate value from given inputs
     @IBAction func valueCalc(_ sender: UIButton)
     {
-        let alertController = UIAlertController(title: "The Value Is", message: "$16,400", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            present(alertController, animated: true, completion: nil)
+        guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?make=&quot;&quot;&model=&quot;&quot;&year=&quot;&quot;&mpg=&quot;&quot;&milage=") else { return }
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            if let data = data {
+                print(data)
+                }
+        }.resume()
         }
+         //let alertController = UIAlertController(title: "The Value Is", message: "$16,400", preferredStyle: UIAlertController.Style.alert)
+           // alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            //present(alertController, animated: true, completion: nil)
+       // }
+ 
+        
     //Picker View Section
     @IBOutlet weak var pickerTextField: UITextField!
     @IBOutlet weak var picker1TextField: UITextField!
