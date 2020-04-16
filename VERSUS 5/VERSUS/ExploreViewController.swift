@@ -10,6 +10,23 @@ import Foundation
 import UIKit
 
 class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    //Adding Ajax for connection - get code
+    let  url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?make=&quot;&quot;&model=&quot;&quot;&year=&quot;&quot;&mpg=&quot;&quot;&milage=")!
+    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        if let error = error{
+        print("error: \(error)" )
+        }
+        else {
+            if let response = response as? HTTPURLResponse {
+                print("Status: \(response.Status)")
+            }
+            if let data = data let dataString = String(data: data, encoding: utf8) {
+                print("data: \(dataString)")
+            }
+        }
+    }
+    task.resume()
+    //Validatin for MPG and Mileage Section 
  var validation = Validation()
 
     @IBOutlet weak var validateMPGtextfield: UITextField!

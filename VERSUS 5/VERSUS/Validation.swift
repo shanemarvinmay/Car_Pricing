@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 class Validation {
-    //MPG validaton section
+    //MPG validaton section - Need numbers only and also the length (how many number inputs )
        public func validateMilesPG(milesPergal: String) ->Bool {
         let milesPERGALRegex = try! NSRegularExpression(pattern: "^[0-9]*$")
         let trimmedString = milesPergal.trimmingCharacters(in: .whitespaces)
@@ -18,9 +18,9 @@ class Validation {
         return isValidateMPG
         }
         
-        //Mileage Validation section
+        //Mileage Validation section - Need numbers only and also the length (how many number inputs ) 
         public func validateMileage1(mileAge: String) -> Bool {
-            let mileageRegex = try! NSRegularExpression(pattern: "^[0-9]*$")
+            let mileageRegex = try! NSRegularExpression(pattern: " ^[0-9]*$") 
             let trimmedString = mileAge.trimmingCharacters(in: .whitespaces)
             let validateMilage = NSPredicate(format: "SELF MATCHES %@",mileageRegex )
             let isValidateMileage = validateMilage.evaluate(with: trimmedString)
@@ -28,11 +28,4 @@ class Validation {
     }
     }
 
-/*
- public func validateEmailId(emailID: String) -> Bool {
-    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-    let trimmedString = emailID.trimmingCharacters(in: .whitespaces)
-    let validateEmail = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-    let isValidateEmail = validateEmail.evaluate(with: trimmedString)
-    return isValidateEmail
- } */
+
