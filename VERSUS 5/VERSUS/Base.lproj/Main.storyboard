@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-B9-cXb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862.00000000000045"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVEWIRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-KD-ivp">
                                 <rect key="frame" x="-5" y="95" width="394" height="75"/>
@@ -630,6 +630,9 @@
                                 <state key="normal" title="LOGIN" image="backward.end" catalog="system">
                                     <color key="titleColor" red="1" green="0.86292568849999995" blue="0.83845893090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <segue destination="n0V-MT-AGh" kind="presentation" id="gWM-AU-BfY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpi-9s-xKx">
                                 <rect key="frame" x="254" y="755" width="77" height="30"/>
@@ -858,27 +861,27 @@
             <point key="canvasLocation" x="-1310" y="-148"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gWM-AU-BfY"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="BW" width="2310" height="1733"/>
         <image name="Chevy" width="1280" height="960"/>
         <image name="Ford" width="1600" height="500"/>
         <image name="Image-4" width="1600" height="470"/>
         <image name="Main" width="2310" height="1733"/>
-        <image name="arrow.left.to.line" catalog="system" width="64" height="50"/>
-        <image name="arrow.right.circle" catalog="system" width="64" height="60"/>
-        <image name="backward.end" catalog="system" width="64" height="60"/>
-        <image name="camera.on.rectangle" catalog="system" width="64" height="48"/>
-        <image name="car" catalog="system" width="64" height="46"/>
-        <image name="largecircle.fill.circle" catalog="system" width="64" height="60"/>
+        <image name="arrow.left.to.line" catalog="system" width="128" height="101"/>
+        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
+        <image name="backward.end" catalog="system" width="128" height="120"/>
+        <image name="camera.on.rectangle" catalog="system" width="128" height="96"/>
+        <image name="car" catalog="system" width="128" height="93"/>
+        <image name="largecircle.fill.circle" catalog="system" width="128" height="121"/>
         <image name="lincoln " width="512" height="286"/>
         <image name="orange" width="518" height="253"/>
-        <image name="person" catalog="system" width="64" height="58"/>
-        <image name="person.crop.circle.badge.plus" catalog="system" width="64" height="50"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.crop.circle.badge.plus" catalog="system" width="128" height="101"/>
         <image name="red" width="461" height="184"/>
         <image name="trouble" width="540" height="960"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="cJZ-3t-DEV"/>
-    </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
