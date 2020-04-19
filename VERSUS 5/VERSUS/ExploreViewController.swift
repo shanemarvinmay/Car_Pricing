@@ -35,6 +35,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
         
     @IBAction func validateBtn(_ sender: Any) {
+      
         guard let milespergallon = validateMPGtextfield.text, let mileage = validateMileagetextfield.text else {
                 return
             }
@@ -52,7 +53,10 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
             print("Click On Calculator")
         }
         
-    }    //Create an alert when you calculate value from given inputs
+          hideKeyboard()
+        
+    }
+    //Create an alert when you calculate value from given inputs
     @IBAction func valueCalc(_ sender: UIButton)
     {
         guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?make=&quot;&quot;&model=&quot;&quot;&year=&quot;&quot;&mpg=&quot;&quot;&milage=") else { return }
@@ -65,7 +69,9 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
                 print(data)
                 }
         }.resume()
-        }
+        hideKeyboard()
+        
+    }
          //let alertController = UIAlertController(title: "The Value Is", message: "$16,400", preferredStyle: UIAlertController.Style.alert)
            // alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             //present(alertController, animated: true, completion: nil)
@@ -91,6 +97,13 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        validateMPGtextfield.delegate = self
+        
+        //Listen for keyboard events
+        
+        
+        
         //assign delegates
         picker1TextField.delegate = self
         pickerTextField.delegate = self
@@ -104,6 +117,11 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
     }
     //Mark : TextFiled delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print ("return Pressed ")
+        hideKeyboard()
+        return true
+    }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         active_textFiled = textField
         
@@ -133,6 +151,15 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("Selected item is", current_arr[row])
         active_textFiled.text = current_arr[row]
+    }
+    
+    func hideKeyboard () {
+        validateMPGtextfield.resignFirstResponder()
+        validateMileagetextfield.resignFirstResponder()
+        
+    }
+    @objc func keyboardWillChange(notification: Notification) {
+        print("Keyboard will show: \(notification.name.rawValue)")
     }
     
 
