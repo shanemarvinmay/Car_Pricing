@@ -102,8 +102,6 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         //Listen for keyboard events
         
-        
-        
         //assign delegates
         picker1TextField.delegate = self
         pickerTextField.delegate = self
