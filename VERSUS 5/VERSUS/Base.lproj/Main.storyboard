@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-B9-cXb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862.00000000000045"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVEWIRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-KD-ivp">
                                 <rect key="frame" x="-5" y="95" width="394" height="75"/>
@@ -337,6 +337,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
+                                    <action selector="createAccountBtn:" destination="XBC-7P-VpH" eventType="touchUpInside" id="WAV-pf-Sry"/>
                                     <segue destination="n0V-MT-AGh" kind="show" id="veb-We-2yx"/>
                                 </connections>
                             </button>
@@ -439,6 +440,14 @@
                         <viewLayoutGuide key="safeArea" id="1GJ-DI-Zc1"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ouf-8r-REO"/>
+                    <connections>
+                        <outlet property="confirmPass" destination="det-Rd-kgu" id="hfV-Vp-9PI"/>
+                        <outlet property="mail" destination="nO7-UA-m1H" id="bpb-CM-ezK"/>
+                        <outlet property="name" destination="RdI-Fc-JF2" id="1Ke-jA-uw5"/>
+                        <outlet property="pWord" destination="OsY-p6-J1M" id="PpC-0L-akd"/>
+                        <outlet property="secureA" destination="DhP-NG-5bm" id="Z4o-iI-yyv"/>
+                        <outlet property="secureQ" destination="9kp-UH-zMk" id="Q2Y-Xh-ceb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc3-Be-wCN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -884,7 +893,7 @@
         <image name="trouble" width="540" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cJZ-3t-DEV"/>
+        <segue reference="veb-We-2yx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
