@@ -81,7 +81,6 @@ class SignupViewController: UIViewController {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
-    
     @IBAction func createAccountBtn(_ sender: Any) {
         //check if everything is filled out
         if (filledOut() == false) {

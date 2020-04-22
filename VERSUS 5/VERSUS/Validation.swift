@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-enum Alert {
+/*enum Alert {
     case success
     case failure
     case error
@@ -87,7 +86,7 @@ class Validation: NSObject {
     
     
     
-    
+    */
     
     
     

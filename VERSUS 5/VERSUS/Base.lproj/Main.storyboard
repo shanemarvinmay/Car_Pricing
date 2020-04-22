@@ -77,7 +77,7 @@
                                     <color key="titleColor" red="0.85458675011452001" green="0.35071620344736493" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="valueCalc:" destination="BvF-aM-BW7" eventType="touchUpInside" id="ovC-fV-RXd"/>
+                                    <action selector="valueCalc:" destination="BvF-aM-BW7" eventType="touchUpInside" id="fW8-5o-bxV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bez-Mx-P98">
@@ -108,10 +108,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="EXPLORE" image="car" catalog="system" id="hCd-xg-7Sy"/>
                     <connections>
-                        <outlet property="picker1TextField" destination="A7G-bo-mqr" id="vvW-BR-sFb"/>
-                        <outlet property="pickerTextField" destination="ZdM-X6-dpM" id="8j2-xH-sb3"/>
-                        <outlet property="validateMPGtextfield" destination="KzF-x5-4Kw" id="WNJ-zr-a80"/>
-                        <outlet property="validateMileagetextfield" destination="Vkt-Ph-rlu" id="nN6-qF-XnP"/>
+                        <outlet property="picker1TextField" destination="A7G-bo-mqr" id="kzV-zy-diy"/>
+                        <outlet property="pickerTextField" destination="ZdM-X6-dpM" id="uPE-RS-XPE"/>
+                        <outlet property="validateMPGtextfield" destination="KzF-x5-4Kw" id="WzL-Dk-Gib"/>
+                        <outlet property="validateMileagetextfield" destination="Vkt-Ph-rlu" id="yrH-Wb-7ke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kru-RE-2u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -249,7 +249,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-B9-cXb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862.00000000000045"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVEWIRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-KD-ivp">
                                 <rect key="frame" x="-5" y="95" width="394" height="75"/>
@@ -966,7 +966,7 @@
         <image name="trouble" width="540" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="veb-We-2yx"/>
+        <segue reference="cJZ-3t-DEV"/>
         <segue reference="i5f-l5-Ixv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

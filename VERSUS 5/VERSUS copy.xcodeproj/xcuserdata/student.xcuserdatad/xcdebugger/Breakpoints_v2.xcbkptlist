@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C567AE02-915E-44E5-A772-03FFD4E8D1D1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VERSUS/Validation.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "C567AE02-915E-44E5-A772-03FFD4E8D1D1 - 5be0e4357f368aca"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VERSUS.RegEx.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;VERSUS.RegEx&gt;"
-                  moduleName = "VERSUS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/Validation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "C567AE02-915E-44E5-A772-03FFD4E8D1D1 - 84b62f68932dd5eb"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VERSUS.RegEx.rawValue.getter : Swift.String"
-                  moduleName = "VERSUS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Desktop/Car_Pricing/VERSUS%205/VERSUS/Validation.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "93B46B6A-08E7-47CC-96C1-709411050D2F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -62,8 +14,8 @@
             filePath = "VERSUS/ExploreViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "ExploreViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -78,8 +30,8 @@
             filePath = "VERSUS/ExploreViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "displayText()"
             landmarkType = "7">
          </BreakpointContent>
