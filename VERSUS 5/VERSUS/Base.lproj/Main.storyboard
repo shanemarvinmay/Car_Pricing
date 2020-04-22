@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-B9-cXb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862.00000000000045"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVEWIRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-KD-ivp">
                                 <rect key="frame" x="-5" y="95" width="394" height="75"/>
@@ -355,8 +355,22 @@
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RdI-Fc-JF2" userLabel="lastName">
+                                <rect key="frame" x="29" y="216" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8b-m3-KMi" userLabel="username">
+                                <rect key="frame" x="30" y="266" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nO7-UA-m1H" userLabel="email">
-                                <rect key="frame" x="30" y="270" width="342" height="34"/>
+                                <rect key="frame" x="30" y="321" width="342" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
@@ -370,14 +384,14 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OsY-p6-J1M">
-                                <rect key="frame" x="30" y="334" width="342" height="34"/>
+                                <rect key="frame" x="30" y="374" width="342" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="det-Rd-kgu">
-                                <rect key="frame" x="30" y="404" width="342" height="34"/>
+                                <rect key="frame" x="30" y="427" width="342" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
@@ -424,7 +438,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="xRJ-xc-nDQ">
-                                <rect key="frame" x="231" y="428" width="190" height="111"/>
+                                <rect key="frame" x="259" y="469" width="162" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-4" translatesAutoresizingMaskIntoConstraints="NO" id="yGh-5I-o5m">
@@ -432,16 +446,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="orange" translatesAutoresizingMaskIntoConstraints="NO" id="NSV-Po-tMH">
-                                <rect key="frame" x="-17" y="457" width="240" height="128.00000000000006"/>
+                                <rect key="frame" x="-17" y="489" width="218" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RdI-Fc-JF2" userLabel="lastName">
-                                <rect key="frame" x="29" y="216" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" textContentType="name"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.48977869749069214" green="0.098719038069248199" blue="0.1117449477314949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="1GJ-DI-Zc1"/>
@@ -453,13 +460,14 @@
                         <outlet property="firstName" destination="OXk-5k-FBJ" id="q3P-7e-UJs"/>
                         <outlet property="lastName" destination="RdI-Fc-JF2" id="1Ke-jA-uw5"/>
                         <outlet property="password" destination="OsY-p6-J1M" id="PpC-0L-akd"/>
-                        <outlet property="secureA" destination="DhP-NG-5bm" id="Z4o-iI-yyv"/>
-                        <outlet property="secureQ" destination="9kp-UH-zMk" id="Q2Y-Xh-ceb"/>
+                        <outlet property="securityA" destination="DhP-NG-5bm" id="Z4o-iI-yyv"/>
+                        <outlet property="securityQ" destination="9kp-UH-zMk" id="Q2Y-Xh-ceb"/>
+                        <outlet property="username" destination="u8b-m3-KMi" id="exo-xR-6lg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc3-Be-wCN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4800" y="-352"/>
+            <point key="canvasLocation" x="-4800" y="-352.23214285714283"/>
         </scene>
         <!--Login-->
         <scene sceneID="fId-fx-swQ">
