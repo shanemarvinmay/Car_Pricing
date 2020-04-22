@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-B9-cXb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862.00000000000045"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVEWIRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-KD-ivp">
                                 <rect key="frame" x="-5" y="95" width="394" height="75"/>
@@ -419,12 +419,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KUW-mx-lzY">
-                                <rect key="frame" x="210" y="-59.5" width="204" height="288"/>
+                                <rect key="frame" x="300" y="1" width="114" height="228"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9n-63-GUM">
-                                <rect key="frame" x="1" y="47" width="239" height="77"/>
+                                <rect key="frame" x="175" y="20" width="239" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="JOIN US">
@@ -449,6 +449,15 @@
                                 <rect key="frame" x="-17" y="489" width="218" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKq-tw-0Ke">
+                                <rect key="frame" x="5" y="20" width="175" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Back to LogIn"/>
+                                <connections>
+                                    <segue destination="n0V-MT-AGh" kind="show" id="o9R-GG-EAS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.48977869749069214" green="0.098719038069248199" blue="0.1117449477314949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="1GJ-DI-Zc1"/>
@@ -661,6 +670,9 @@
                                 <state key="normal" title="LOGIN" image="backward.end" catalog="system">
                                     <color key="titleColor" red="1" green="0.86292568849999995" blue="0.83845893090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <segue destination="n0V-MT-AGh" kind="show" id="6xg-aX-n3d"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpi-9s-xKx">
                                 <rect key="frame" x="254" y="755" width="77" height="30"/>
@@ -909,7 +921,7 @@
         <image name="trouble" width="540" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="veb-We-2yx"/>
+        <segue reference="6xg-aX-n3d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

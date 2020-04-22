@@ -115,10 +115,6 @@ class SignupViewController: UIViewController {
                 // Convert HTTP Response Data to a String
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
                        print("Response data string:\n \(dataString)")
-                    
-//                     if dataString == "User is signed up!" { DispatchQueue.main.async {
-//                        self.displayAlert(msgTitle: "Hooray", msgContent: "success")
-//                        }}
                 }
         }
          task.resume()
