@@ -11,9 +11,10 @@ import UIKit
 
 class SignupViewController: UIViewController {
     
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var mail: UITextField!
-    @IBOutlet weak var pWord: UITextField!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPass: UITextField!
     @IBOutlet weak var secureQ: UITextField!
     @IBOutlet weak var secureA: UITextField!
@@ -31,9 +32,9 @@ class SignupViewController: UIViewController {
     }
     @IBAction func createAccountBtn(_ sender: Any) {
         
-        let u = name.text!
-        let e = mail.text!
-        let p = pWord.text!
+        let u = lastName.text!
+        let e = email.text!
+        let p = password.text!
         let confirmPassword = confirmPass.text!
         let s = secureQ.text!
         let a = secureA.text!
