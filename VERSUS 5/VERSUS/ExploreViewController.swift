@@ -64,18 +64,18 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         }
         task.resume()
         
-    //POST request -------------------------------------------------------------------------------------------
-        let url = URL(String: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=\(user)u&make=\(make)&model=\(model)&year=\(year)y&mpg=\(mpg)&milage=\(mileage)" )
-        guard let requestUrl = url else{ fatalError() }
+    //POST request ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        let url2 = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)" )
+        guard let requestUrl2 = url else{ fatalError() }
                 
-                var request = URLRequest(url: requestUrl)
+                var request2 = URLRequest(url: requestUrl)
                 request.httpMethod = "POST"
                 
                 let postString = "userId=300&title=My urgent task&completed=false";
                 // Set HTTP Request Body
                 request.httpBody = postString.data(using: String.Encoding.utf8);
                 // Perform HTTP Request
-                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                let task2 = URLSession.shared.dataTask(with: request) { (data, response, error) in
                         
                         // Check for Error
                         if let error = error {
@@ -89,10 +89,8 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
                         }
                 }
                  task.resume()
-            }
-}
-    
-    //Picker View Section------------------------------------------------------------------------------------------------
+    }
+    //Picker View Section--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var pickerTextField: UITextField!
     @IBOutlet weak var picker1TextField: UITextField!
     //content for pickers
