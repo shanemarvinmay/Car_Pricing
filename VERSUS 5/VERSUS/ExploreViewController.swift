@@ -10,36 +10,25 @@ import Foundation
 import UIKit
 
 class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-   
-    //Validatin for MPG and Mileage Section--------------------------------------------------------------------------
- var validation = Validation()
+    
+    
+    //Validatin for MPG and Mileage will be added on 04/25/20 Section--------------------------------------------------------------------------
     @IBOutlet weak var validateMPGtextfield: UITextField!
     @IBOutlet weak var validateMileagetextfield: UITextField!
     @IBAction func validateBtn(_ sender: Any) {
-        guard let milespergallon = validateMPGtextfield.text, let mileage = validateMileagetextfield.text else { return }
-        let isValidateMPG = self.validation.validateMilesPG(milesPergal: milespergallon)
-            if (isValidateMPG == false) {
-                print(" ")
-                return
-            }
-        let isValidateMileage = self.validation.validateMileage1(mileAge: mileage)
-            if (isValidateMileage == false) {
-                print(" ")
-                return
-            }
-            if(isValidateMPG == true || isValidateMileage == true){
-            print("Click On Calculator")
-        }
+    
     }
     //Create an alert when you calculate value from given inputs----------------------------------------------------
     @IBAction func valueCalc(_ sender: UIButton)
     {
+
         let mpg = validateMPGtextfield.text!
         let mileage = validateMileagetextfield.text!
         let make = pickerTextField.text!
         let model = picker1TextField.text!
         
-        //Get request for Car value
+
+        //Get request for Car value--------------------------------------------------------
         //Create URL
         let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)35&milage=\(mileage)")
         guard let requestUrl = url else { fatalError() }
@@ -74,10 +63,36 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
                  }
         }
         task.resume()
-           }
-    
         
-    //Picker View Section
+    //POST request -------------------------------------------------------------------------------------------
+        let url = URL(String: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=\(user)u&make=\(make)&model=\(model)&year=\(year)y&mpg=\(mpg)&milage=\(mileage)" )
+        guard let requestUrl = url else{ fatalError() }
+                
+                var request = URLRequest(url: requestUrl)
+                request.httpMethod = "POST"
+                
+                let postString = "userId=300&title=My urgent task&completed=false";
+                // Set HTTP Request Body
+                request.httpBody = postString.data(using: String.Encoding.utf8);
+                // Perform HTTP Request
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                        
+                        // Check for Error
+                        if let error = error {
+                            print("Error took place \(error)")
+                            return
+                        }
+                 
+                        // Convert HTTP Response Data to a String
+                        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                               print("Response data string:\n \(dataString)")
+                        }
+                }
+                 task.resume()
+            }
+}
+    
+    //Picker View Section------------------------------------------------------------------------------------------------
     @IBOutlet weak var pickerTextField: UITextField!
     @IBOutlet weak var picker1TextField: UITextField!
     //content for pickers
@@ -92,13 +107,23 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var current_arr : [String] = []
     //Hold current text
     var active_textFiled : UITextField!
-    
-  
+      
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        /*
+     let response = Validation.shared.validate(values: (ValidationType.mpg, "167"), (ValidationType.mileage, "65,000"))
+                  switch response {
+                  case .success:
+                      break
+                  case .failure(_, let message):
+                      print(message.localized())
+                  }
+ */
+        //Alert display
+       
+    
         validateMPGtextfield.delegate = self
-        
         
         //assign delegates
         picker1TextField.delegate = self
@@ -109,10 +134,8 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
         picker1TextField.inputView = car_PickerView
         pickerTextField.inputView = car_PickerView
-    
-        
     }
-    //Mark : TextFiled delegate
+    //TextFieled delegate------------------------------------------------------------------------------------------------------
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print ("return Pressed ")
         return true
@@ -129,11 +152,9 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
             print("Default")
         }
         car_PickerView.reloadAllComponents()
-        
         return true
     }
-    
-    //Mark : Picker View
+    //Mark : Picker View-----------------------------------------------------------------------------------------------------
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -147,7 +168,31 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         print("Selected item is", current_arr[row])
         active_textFiled.text = current_arr[row]
     }
-
+    
+     func displayAlert(msgTitle:String, msgContent:String){
+               let alertController = UIAlertController(title: msgTitle,message: msgContent, preferredStyle: .alert)
+               let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+               alertController.addAction(defaultAction)
+               
+               present(alertController, animated: true, completion: nil)
+           }
+            
+            func displayText() -> Bool {
+                var isdisplayText = true
+                var displayMessage = "Missing: "
+                
+                if (validateMPGtextfield.text!.isEmpty) {
+                    isdisplayText = false
+                    displayMessage += "Miles Per Gallon"
+                }
+                if (validateMPGtextfield.text!.isEmpty) {
+                    isdisplayText = false
+                    displayMessage += "Mileage"
+                }
+               if (isdisplayText == false) {
+                   displayAlert(msgTitle: "Missing Values", msgContent: displayMessage)
+               }
+               return true
+            }
 
 }
-

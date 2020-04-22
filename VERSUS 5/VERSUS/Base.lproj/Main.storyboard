@@ -82,17 +82,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bez-Mx-P98">
-                                <rect key="frame" x="202" y="685" width="44" height="31"/>
+                                <rect key="frame" x="42" y="682" width="44" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Ford"/>
                                 <connections>
                                     <action selector="validateBtn:" destination="BvF-aM-BW7" eventType="touchUpInside" id="aBT-1F-xm5"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="W4x-mf-cdA">
-                                <rect key="frame" x="70" y="539" width="297" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1d-vG-pXW">
+                                <rect key="frame" x="136" y="682" width="127" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.56772828102111816" green="0.087049059569835663" blue="0.12748110294342041" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -230,8 +233,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="XD4-pq-SjM" kind="relationship" relationship="viewControllers" id="5cT-Va-OHE"/>
-                        <segue destination="BvF-aM-BW7" kind="relationship" relationship="viewControllers" id="6m5-Fo-b4R"/>
                         <segue destination="0ku-9I-lUn" kind="relationship" relationship="viewControllers" id="12y-uI-QIe"/>
+                        <segue destination="BvF-aM-BW7" kind="relationship" relationship="viewControllers" id="M2c-WG-2Vr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myo-Xc-Fpa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

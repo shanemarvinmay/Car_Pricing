@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+//This is an example code for a post request please see format to get understanding
+/*
 enum APIError: Error {
     case responseProblem
     case decodingProblem
@@ -51,3 +52,4 @@ struct APIRequest {
         }
     }
 }
+*/

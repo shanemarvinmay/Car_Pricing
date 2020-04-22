@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+//This is an example file for Ajax request - review and understand concept
+/*
 final class Message: Codable {
     var id: Int?
     var message: String
@@ -15,3 +16,4 @@ final class Message: Codable {
         self.message = message
     }
 }
+*/
