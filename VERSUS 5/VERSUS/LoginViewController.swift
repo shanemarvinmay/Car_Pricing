@@ -17,8 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
- /*
-        passWord.addTarget(self, action: #selector(checkAndDisplayError(passWord:)), for: .editingChanged)
+ 
+      /* passWord.addTarget(self, action: #selector(checkAndDisplayError(passWord:)), for: .editingChanged)
     }
     
     @objc func checkAndDisplayError (passWord: UITextField) {
@@ -29,25 +29,28 @@ class LoginViewController: UIViewController {
             errorLabel.text = " "
         }
 
-   */
+   
     }
-    /*
-    //LoginUser
-    @IBAction func loginUser(_ sender: Any) {
+ */
         
-        guard let _ = userName.text, userName.text?.characters.count != 0 else {
+
+    //LoginUser 
+        func loginUser(_ sender: Any) {
+        
+        guard let _ = userName.text, userName.text?.count != 0 else {
             errorLabel.isHidden = false
             errorLabel.text = "enter your email"
             return
         }
-        guard let _ = passWord.text, passWord.text?.characters.count != 0
+        guard let _ = passWord.text, passWord.text?.count != 0
             else {
                 errorLabel.isHidden = false
                 errorLabel.text = "please enter password"
-        }
+       return
+            }
     }
-    override func didReceiveMemoryWarning() {
+        func didReceiveMemoryWarning() {
         super.viewDidLoad()
     }
-*/
+}
 }
