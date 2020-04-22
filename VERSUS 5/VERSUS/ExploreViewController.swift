@@ -10,35 +10,14 @@ import Foundation
 import UIKit
 
 class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-    /* Adding Ajax for connection - get code
-    let  url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?make=&quot;&quot;&model=&quot;&quot;&year=&quot;&quot;&mpg=&quot;&quot;&milage=")!
-    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-        if let error = error{
-        print("error: \(error)" )
-        }
-        else {
-            if let response = response as? HTTPURLResponse {
-                print("Status: \(response.Status)")
-            }
-            if let data = data let dataString = String(data: data, encoding: utf8) {
-                print("data: \(dataString)")
-            }
-        }
-    }
-    task.resume()
-    */
-    //Validatin for MPG and Mileage Section 
+   
+    //Validatin for MPG and Mileage Section--------------------------------------------------------------------------
  var validation = Validation()
-
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var validateMPGtextfield: UITextField!
     @IBOutlet weak var validateMileagetextfield: UITextField!
-    
-        
     @IBAction func validateBtn(_ sender: Any) {
-      
-        guard let milespergallon = validateMPGtextfield.text, let mileage = validateMileagetextfield.text else {
-                return
-            }
+        guard let milespergallon = validateMPGtextfield.text, let mileage = validateMileagetextfield.text else { return }
         let isValidateMPG = self.validation.validateMilesPG(milesPergal: milespergallon)
             if (isValidateMPG == false) {
                 print(" ")
@@ -52,31 +31,47 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
             if(isValidateMPG == true || isValidateMileage == true){
             print("Click On Calculator")
         }
-        
-          hideKeyboard()
-        
     }
-    //Create an alert when you calculate value from given inputs
+    //Create an alert when you calculate value from given inputs----------------------------------------------------
     @IBAction func valueCalc(_ sender: UIButton)
     {
-        guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?make=&quot;&quot;&model=&quot;&quot;&year=&quot;&quot;&mpg=&quot;&quot;&milage=") else { return }
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            if let data = data {
-                print(data)
-                }
-        }.resume()
-        hideKeyboard()
+        //Get request for Car value
+        //Create URL
+        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=u&model=u&year=2020&mpg=35&milage=1")
+        guard let requestUrl = url else { fatalError() }
         
-    }
-         //let alertController = UIAlertController(title: "The Value Is", message: "$16,400", preferredStyle: UIAlertController.Style.alert)
-           // alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            //present(alertController, animated: true, completion: nil)
-       // }
- 
+        //Create request for URL
+        var request = URLRequest(url: requestUrl)
+        
+        //Specifying method to use for HTTP
+        request.httpMethod = "GET"
+        
+        //Set Header for HTTP request
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        //Send HTTP request
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            //Check for errors
+            if let error = error {
+                print ("Error took place \(error)")
+                return
+            }
+        //Reading HTTP response status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+                let allHeaderFields: [AnyHashable : Any] = response.allHeaderFields
+                //reads all HTTP response headers
+                print("All headers: \(allHeaderFields)")
+            }
+            //Converting the response data of HTTP to string
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string: \n \(dataString)")
+                 }
+        }
+        task.resume()
+           }
+    
         
     //Picker View Section
     @IBOutlet weak var pickerTextField: UITextField!
@@ -97,10 +92,9 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         validateMPGtextfield.delegate = self
         
-        //Listen for keyboard events
         
         //assign delegates
         picker1TextField.delegate = self
@@ -117,7 +111,6 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     //Mark : TextFiled delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print ("return Pressed ")
-        hideKeyboard()
         return true
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -150,16 +143,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         print("Selected item is", current_arr[row])
         active_textFiled.text = current_arr[row]
     }
-    
-    func hideKeyboard () {
-        validateMPGtextfield.resignFirstResponder()
-        validateMileagetextfield.resignFirstResponder()
-        
-    }
-    @objc func keyboardWillChange(notification: Notification) {
-        print("Keyboard will show: \(notification.name.rawValue)")
-    }
-    
+
 
 }
 
