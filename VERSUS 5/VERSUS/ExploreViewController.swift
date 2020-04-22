@@ -13,7 +13,6 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
    
     //Validatin for MPG and Mileage Section--------------------------------------------------------------------------
  var validation = Validation()
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var validateMPGtextfield: UITextField!
     @IBOutlet weak var validateMileagetextfield: UITextField!
     @IBAction func validateBtn(_ sender: Any) {
@@ -35,9 +34,14 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     //Create an alert when you calculate value from given inputs----------------------------------------------------
     @IBAction func valueCalc(_ sender: UIButton)
     {
+        let mpg = validateMPGtextfield.text!
+        let mileage = validateMileagetextfield.text!
+        let make = pickerTextField.text!
+        let model = picker1TextField.text!
+        
         //Get request for Car value
         //Create URL
-        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=u&model=u&year=2020&mpg=35&milage=1")
+        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)35&milage=\(mileage)")
         guard let requestUrl = url else { fatalError() }
         
         //Create request for URL
