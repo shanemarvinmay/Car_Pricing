@@ -4,15 +4,33 @@
 //
 //  Created by Jazmine N Spann on 3/2/20.
 //  Copyright © 2020 Jazmine N Spann. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 class AccountViewController: UIViewController{
+    
+    @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var account: UIView!
     @IBOutlet weak var history: UIView!
+    
+    
     @IBAction func switchView(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex{
+               case 0:
+                   account.alpha = 1
+                   history.alpha = 0
+                   break
+               case 1:
+                   account.alpha = 0
+                   history.alpha = 1
+                   break
+               default:
+                   break
+               }
+        
+        
+        /*
         if sender.selectedSegmentIndex == 0 {
             account.alpha = 1
             history.alpha = 0
@@ -20,7 +38,8 @@ class AccountViewController: UIViewController{
         else {
             account.alpha = 0
             history.alpha = 1
-        }
+        }  */
+        
     }
     @IBOutlet weak var circularImage: UIImageView!
     
@@ -33,6 +52,7 @@ class AccountViewController: UIViewController{
         var selectorViewColor: UIColor = .red
         var selectorTextColor: UIColor = .red
     */
+ 
        override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,3 +74,4 @@ class AccountViewController: UIViewController{
     }
  */
 }
+
