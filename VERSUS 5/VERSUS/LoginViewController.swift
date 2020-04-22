@@ -30,7 +30,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
          let alertController = UIAlertController(title: "alert ", message: "Username / Password is incorrect", preferredStyle: UIAlertController.Style.alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     present(alertController, animated: true, completion: nil)
-                guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/login?username=&quot;&quot;&password=") else { return }
+                guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/login?username=\(userName)&quot;&quot;&password=(passWord)") else { return }
                 let session = URLSession.shared
                 session.dataTask(with: url) { (data, response, error) in
                     if let response = response {

@@ -241,11 +241,11 @@
                                 <color key="shadowColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PpQ-WO-tfr">
-                                <rect key="frame" x="11" y="773" width="96" height="55"/>
+                                <rect key="frame" x="4" y="773" width="111" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="SIGN IN">
+                                        <fragment content="SIGN UP">
                                             <attributes>
                                                 <color key="NSColor" red="0.5009319479695431" green="0.47821114972387618" blue="0.46900376196775184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <font key="NSFont" size="28" name="Papyrus"/>
@@ -520,6 +520,25 @@
                                     <segue destination="vLQ-PP-6cX" kind="show" id="YA4-Zw-A2E"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ac-H8-RbC">
+                                <rect key="frame" x="57" y="772" width="91" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.2322903174" green="0.073315362640000006" blue="0.068148403859999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="backward.end" catalog="system">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="SignUp">
+                                            <attributes>
+                                                <font key="NSFont" size="19" name="AmericanTypewriter-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="XBC-7P-VpH" kind="popoverPresentation" popoverAnchorView="2ac-H8-RbC" id="tjU-ky-cmt">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <accessibility key="accessibilityConfiguration">
@@ -619,6 +638,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <connections>
+                                    <action selector="emailconfirm:" destination="vLQ-PP-6cX" eventType="editingDidEnd" id="gFn-jL-fDL"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxX-no-qZH">
                                 <rect key="frame" x="342" y="339" width="40" height="29"/>
@@ -655,6 +677,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="answertoquestion:" destination="vLQ-PP-6cX" eventType="editingDidEnd" id="pnk-gz-Co8"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGR-lv-yFo">
                                 <rect key="frame" x="7" y="455" width="400" height="38"/>
@@ -684,6 +709,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ePA-B1-dz3"/>
                     <connections>
+                        <outlet property="answer" destination="OyT-3S-hff" id="w8O-P9-uFw"/>
+                        <outlet property="email" destination="HZs-an-cQs" id="oxo-Ox-KFa"/>
                         <outlet property="securityQuestion" destination="UGR-lv-yFo" id="mRx-Hl-up6"/>
                     </connections>
                 </viewController>
@@ -868,7 +895,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="veb-We-2yx"/>
+        <segue reference="gWM-AU-BfY"/>
+        <segue reference="hsZ-eC-oht"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
