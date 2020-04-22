@@ -38,11 +38,11 @@ class SignupViewController: UIViewController {
        
         if (firstName.text!.isEmpty) {
             isfilledOut = false
-            displayMessage += " firstName"
+            displayMessage += " first name"
         }
         if (lastName.text!.isEmpty) {
             isfilledOut = false
-            displayMessage += " lastName"
+            displayMessage += " last name"
         }
         if(username.text!.isEmpty) {
             isfilledOut = false
@@ -75,6 +75,14 @@ class SignupViewController: UIViewController {
         }
         return true
     }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
     @IBAction func createAccountBtn(_ sender: Any) {
         //check if everything is filled out
         if (filledOut() == false) {
@@ -84,7 +92,15 @@ class SignupViewController: UIViewController {
         //check if passwords match
         if (password.text != confirmPass.text) {
             displayAlert(msgTitle: "Not Matching", msgContent: "Password and confirm password do not match")
+            return
         }
+        
+        //check if email is valid email
+        if (isValidEmail(email.text!) == false) {
+            displayAlert(msgTitle: "Not Valid Email", msgContent: "The email given is not a valid email address")
+            return
+        }
+        
         
         let firstN = firstName.text!
         let lastN = lastName.text!
