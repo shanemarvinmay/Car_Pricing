@@ -12,13 +12,13 @@ import UIKit
 class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
-    //Validatin for MPG and Mileage will be added on 04/25/20 Section--------------------------------------------------------------------------
+    //Validatin for MPG and Mileage will be added on 04/25/20 Section------------------------------------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var validateMPGtextfield: UITextField!
     @IBOutlet weak var validateMileagetextfield: UITextField!
     @IBAction func validateBtn(_ sender: Any) {
     
     }
-    //Create an alert when you calculate value from given inputs----------------------------------------------------
+    //Create an alert when you calculate value from given inputs----------------------------------------------------------------------------------------------------------------------------------------------------------
     @IBAction func valueCalc(_ sender: UIButton)
     {
 
@@ -28,7 +28,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let model = picker1TextField.text!
         
 
-        //Get request for Car value--------------------------------------------------------
+        //Get request for Car value---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //Create URL
         let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)35&milage=\(mileage)")
         guard let requestUrl = url else { fatalError() }
@@ -109,7 +109,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        /*
+        /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
      let response = Validation.shared.validate(values: (ValidationType.mpg, "167"), (ValidationType.mileage, "65,000"))
                   switch response {
                   case .success:
@@ -117,11 +117,8 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
                   case .failure(_, let message):
                       print(message.localized())
                   }
- */
-        //Alert display
-       
-    
-        validateMPGtextfield.delegate = self
+ ---------------------------------------------------- ----------------------------------------------- --------------------------------------- -------------------------------------- -------------------------------*/
+       validateMPGtextfield.delegate = self
         
         //assign delegates
         picker1TextField.delegate = self
@@ -133,7 +130,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         picker1TextField.inputView = car_PickerView
         pickerTextField.inputView = car_PickerView
     }
-    //TextFieled delegate------------------------------------------------------------------------------------------------------
+    //TextFieled delegate----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print ("return Pressed ")
         return true
@@ -152,7 +149,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
         car_PickerView.reloadAllComponents()
         return true
     }
-    //Mark : Picker View-----------------------------------------------------------------------------------------------------
+    //Mark : Picker View----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
