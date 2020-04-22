@@ -19,6 +19,18 @@ class ForgotViewController: UIViewController {
     @IBOutlet weak var securityQuestion: UILabel!
     @IBAction func getQuestion(_ sender: UIButton) {
         securityQuestion.text = "What is your favorite ice cream?"
+        guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/forgot-password?username=&quot;&quot;&securityAnswer=") else { return }
+                let session = URLSession.shared
+                session.dataTask(with: url) { (data, response, error) in
+                    if let response = response {
+                        print(response)
+                    }
+                    if let data = data {
+                        print(data)
+                        }
+                    
+                }.resume()
+        
     }
     override func viewDidLoad() {
     super.viewDidLoad()
