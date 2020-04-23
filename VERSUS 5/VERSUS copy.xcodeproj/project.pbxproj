@@ -67,7 +67,6 @@
 		7B4C5AE424098D7000CF84E1 = {
 			isa = PBXGroup;
 			children = (
-				3F2B8FAC2450C9F800451EC9 /* AccountViewController.swift */,
 				7B4C5B12240DBFE900CF84E1 /* lincoln .jp2 */,
 				7B4C5B04240995BB00CF84E1 /* car4.jpg */,
 				7B4C5AEF24098D7100CF84E1 /* VERSUS */,
@@ -88,6 +87,7 @@
 			children = (
 				3F1E37792446F28400B4F183 /* ExploreViewController.swift */,
 				3F2B8FA6244F46FF00451EC9 /* APIRequest.swift */,
+				3F2B8FAC2450C9F800451EC9 /* AccountViewController.swift */,
 				3F2B8FA8244F482400451EC9 /* Message.swift */,
 				7B4C5AF024098D7100CF84E1 /* AppDelegate.swift */,
 				7B4C5AF224098D7100CF84E1 /* SceneDelegate.swift */,

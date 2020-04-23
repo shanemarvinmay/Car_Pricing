@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     //Validatin for MPG and Mileage will be added on 04/25/20 Section------------------------------------------------------------------------------------------------------------------------------------------------
@@ -22,6 +22,37 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBAction func valueCalc(_ sender: UIButton)
     {
 
+        let mpg = validateMPGtextfield.text!
+        let mileage = validateMileagetextfield.text!
+        let make = pickerTextField.text!
+        let model = picker1TextField.text!
+        //let user = username.text!
+       // let yr = year.text!
+        
+
+        //POST request for Car value---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //Create URL
+        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    print("statusCode: \(response.statusCode)")
+                }
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("data: \(dataString)")
+                }
+            }
+        }
+        task.resume()
+}
+    
+    @IBAction func calcTapped(_ sender: Any) {
+       // textView.text = (data)
+        
         let mpg = validateMPGtextfield.text!
         let mileage = validateMileagetextfield.text!
         let make = pickerTextField.text!
@@ -63,8 +94,8 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
                  }
         }
 
-        task.resume()
-}
+        task.resume()    }
+    
     //Fix username - work with angelica to figure out a way to get username requested over multple controllers and add years info to stop hard coding
     //POST request ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         // deleted post code
@@ -79,55 +110,26 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
       
 //Picker View
     let car_PickerView = UIPickerView()
-    
-    //Hold current data
+//Hold current data
     var current_arr : [String] = []
-    //Hold current text
+//Hold current text
     var active_textFiled : UITextField!
       
     override func viewDidLoad() {
         super.viewDidLoad()
+    //assign delegates
+    validateMPGtextfield.delegate = self
+    validateMileagetextfield.delegate = self
+    picker1TextField.delegate = self
+    pickerTextField.delegate = self
+    car_PickerView.delegate = self
+    car_PickerView.dataSource = self
+        
+    picker1TextField.inputView = car_PickerView
+    pickerTextField.inputView = car_PickerView
+    }
     
-        /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-     let response = Validation.shared.validate(values: (ValidationType.mpg, "167"), (ValidationType.mileage, "65,000"))
-                  switch response {
-                  case .success:
-                      break
-                  case .failure(_, let message):
-                      print(message.localized())
-                  }
- ---------------------------------------------------- ----------------------------------------------- --------------------------------------- -------------------------------------- -------------------------------*/
-       validateMPGtextfield.delegate = self
-        
-        //assign delegates
-        picker1TextField.delegate = self
-        pickerTextField.delegate = self
-        
-        car_PickerView.delegate = self
-        car_PickerView.dataSource = self
-        
-        picker1TextField.inputView = car_PickerView
-        pickerTextField.inputView = car_PickerView
-    }
-    //TextFieled delegate----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print ("return Pressed ")
-        return true
-    }
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        active_textFiled = textField
-        
-        switch textField {
-        case pickerTextField:
-            current_arr = Make
-        case picker1TextField:
-            current_arr = Model
-        default:
-            print("Default")
-        }
-        car_PickerView.reloadAllComponents()
-        return true
-    }
+    
     //Mark : Picker View----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -159,7 +161,7 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
                     isdisplayText = false
                     displayMessage += "Miles Per Gallon"
                 }
-                if (validateMPGtextfield.text!.isEmpty) {
+                if (validateMileagetextfield.text!.isEmpty) {
                     isdisplayText = false
                     displayMessage += "Mileage"
                 }
@@ -168,5 +170,37 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, UIPickerView
                }
                return true
             }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with evetn: UIEvent?) {
+        validateMileagetextfield.resignFirstResponder()
+    }
 
+}
+
+
+
+
+
+
+
+
+extension ExploreViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        active_textFiled = textField
+        
+        switch textField {
+        case pickerTextField:
+            current_arr = Make
+        case picker1TextField:
+            current_arr = Model
+        default:
+            print("Default")
+        }
+        car_PickerView.reloadAllComponents()
+        return true
+    }
 }
