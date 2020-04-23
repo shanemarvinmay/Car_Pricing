@@ -20,6 +20,8 @@
 		7B4C5B0D240D808500CF84E1 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C5B0C240D808500CF84E1 /* ForgotViewController.swift */; };
 		7B4C5B0F240D80AE00CF84E1 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C5B0E240D80AE00CF84E1 /* CameraViewController.swift */; };
 		7B4C5B11240D80C700CF84E1 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C5B10240D80C700CF84E1 /* AccountViewController.swift */; };
+		ABD15EED2446B02B00FA60FE /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD15EEB2446B02B00FA60FE /* 180.png */; };
+		ABD15EEE2446B02B00FA60FE /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD15EEC2446B02B00FA60FE /* 120.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		7B4C5B0E240D80AE00CF84E1 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		7B4C5B10240D80C700CF84E1 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		7B4C5B12240DBFE900CF84E1 /* lincoln .jp2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lincoln .jp2"; sourceTree = "<group>"; };
+		ABD15EEB2446B02B00FA60FE /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
+		ABD15EEC2446B02B00FA60FE /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				7B4C5B10240D80C700CF84E1 /* AccountViewController.swift */,
 				7B4C5AF624098D7100CF84E1 /* Main.storyboard */,
 				7B4C5AF924098D7200CF84E1 /* Assets.xcassets */,
+				ABD15EEC2446B02B00FA60FE /* 120.png */,
+				ABD15EEB2446B02B00FA60FE /* 180.png */,
 				7B4C5AFB24098D7200CF84E1 /* LaunchScreen.storyboard */,
 				7B4C5AFE24098D7200CF84E1 /* Info.plist */,
 			);
@@ -148,8 +154,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD15EED2446B02B00FA60FE /* 180.png in Resources */,
 				7B4C5AFD24098D7200CF84E1 /* LaunchScreen.storyboard in Resources */,
 				7B4C5B05240995BB00CF84E1 /* car4.jpg in Resources */,
+				ABD15EEE2446B02B00FA60FE /* 120.png in Resources */,
 				7B4C5AFA24098D7200CF84E1 /* Assets.xcassets in Resources */,
 				7B4C5AF824098D7100CF84E1 /* Main.storyboard in Resources */,
 			);

@@ -8,7 +8,7 @@
 
 
 import UIKit
-//import Foundation
+import Foundation
 
 
 
@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passWord: UITextField!
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+//<<<<<<< HEAD
     
     override func viewDidLoad()
     {
@@ -30,7 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
          let alertController = UIAlertController(title: "alert ", message: "Username / Password is incorrect", preferredStyle: UIAlertController.Style.alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     present(alertController, animated: true, completion: nil)
-                guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/login?username=\(userName)&quot;&quot;&password=(passWord)") else { return }
+                guard let url = URL(string: "https://vast-gorge-25891.herokuapp.com/login?username=\(userName);&password=\(passWord)") else { return }
                 let session = URLSession.shared
                 session.dataTask(with: url) { (data, response, error) in
                     if let response = response {
@@ -107,7 +108,44 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
         task. resume(*/
+  
+ 
+      /* passWord.addTarget(self, action: #selector(checkAndDisplayError(passWord:)), for: .editingChanged)
+    }
+    
+    @objc func checkAndDisplayError (passWord: UITextField) {
+        if (passWord.text?.count ?? 0 >= 20) {
+            errorLabel.text = "Enter more than 20 characters"
+        }
+        else {
+            errorLabel.text = " "
+        }
+
+   
+    }
+ */
+        
+
+    //LoginUser 
+        func loginUser(_ sender: Any) {
+        
+        guard let _ = userName.text, userName.text?.count != 0 else {
+            errorLabel.isHidden = false
+            errorLabel.text = "enter your email"
+            return
+        }
+        guard let _ = passWord.text, passWord.text?.count != 0
+            else {
+                errorLabel.isHidden = false
+                errorLabel.text = "please enter password"
+       return
+            }
+    }
+       // func didReceiveMemoryWarning() {
+      //  super.viewDidLoad()
+   // }
 }
+
 
 
 
