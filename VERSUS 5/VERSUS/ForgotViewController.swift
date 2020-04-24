@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class ForgotViewController: UIViewController, UITextFieldDelegate {
     
@@ -32,7 +33,7 @@ class ForgotViewController: UIViewController, UITextFieldDelegate {
     @IBAction func emailconfirm(_ sender: Any) {
      
 //        let email = email.text
-        textView.text = "Email \(email.text)\nAnswer:\(answer)"
+        email.text = "Email \(email.text)"
         
         
         //   {
@@ -40,23 +41,21 @@ class ForgotViewController: UIViewController, UITextFieldDelegate {
     
     }
         
-    override func touchesBegan( touches: Set<UITouch>, with event: UIEvent?)
-    {
-        email.resignFirstResponder()
-    }
+    //override func touchesBegan( touches: Set<UITouch>, with event: UIEvent?)
+   // {
+      //  email.resignFirstResponder()
+    //}
                
         
                        }
 func answertoquestion(_ sender: Any)
     {
+        //answer.text = "Answer\(answer.text)"
         return
-    }
-
-extension ViewController : UITextFieldDelegate {
-    func textFieldShouldReturn ( textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-        
-    }
 }
+    
+
+//truct ForgotViewController_Previews: PreviewProvider {
+   // static var previews: some View {
+      //  /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     
