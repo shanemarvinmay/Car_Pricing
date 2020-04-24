@@ -11,6 +11,7 @@ import UIKit
 
 class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    //GET REQUEST INFO
     struct herokuApp: Codable {
                let value: String
         }

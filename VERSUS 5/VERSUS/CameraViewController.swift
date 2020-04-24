@@ -19,50 +19,50 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
     super.viewDidLoad()
     }
-//Switching between camera and photos
+//GET REQUEST: To get value from image --------------------------------------------------------------------------------------
+    @IBOutlet weak var valueRequest: UILabel!
+    @IBAction func picValue(_ sender: Any) {
+         let url = URL(string: " https://ml-car-value.herokuapp.com/image")
+                     guard let requestUrl = url else { fatalError() }
+                     
+                     //Create request for URL
+                     var request = URLRequest(url: requestUrl)
+                     
+                     //Specifying method to use for HTTP
+                     request.httpMethod = "POST"
+        
+                     //Send HTTP request
+                     let task = URLSession.shared.dataTask(with: request) {
+                         (data, response, error) in
+                         
+                         //Check for errors
+                         if let error = error {
+                             print ("Error took place \(error)")
+                             return
+                         }
+                     //Reading HTTP response status code
+                         if let response = response as? HTTPURLResponse {
+                             print("Response HTTP Status code: \(response.statusCode)")
+                         }
+                      //Converting the response data of HTTP to string
+                          if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                          print("Response data string: \n \(dataString)")
+                              do {
+                                  let json = try JSONSerialization.jsonObject(with: data, options: [])
+                                  print(json)
+                              } catch {
+                                  print(error)
+                              }
+                           }
+                 
+                      }
+                     task.resume()
+          }
+    
+    //Switching between camera and photos------------------------------------------------------------------------------------------
     @IBAction func SelectionBtn(_ sender: Any) {
         
-     /*   let url = URL(string: "")
-                      guard let requestUrl = url else { fatalError() }
-                      
-                      //Create request for URL
-                      var request = URLRequest(url: requestUrl)
-                      
-                      //Specifying method to use for HTTP
-                      request.httpMethod = "GET"
-                      
-                      //Set Header for HTTP request
-                      request.setValue("application/json", forHTTPHeaderField: "Accept")
-                      //Send HTTP request
-                      let task = URLSession.shared.dataTask(with: request) {
-                          (data, response, error) in
-                          
-                          //Check for errors
-                          if let error = error {
-                              print ("Error took place \(error)")
-                              return
-                          }
-                      //Reading HTTP response status code
-                          if let response = response as? HTTPURLResponse {
-                              print("Response HTTP Status code: \(response.statusCode)")
-                              let allHeaderFields: [AnyHashable : Any] = response.allHeaderFields
-                              //reads all HTTP response headers
-                              print("All headers: \(allHeaderFields)")
-                          }
-                       //Converting the response data of HTTP to string
-                           if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                           print("Response data string: \n \(dataString)")
-                               do {
-                                   let json = try JSONSerialization.jsonObject(with: data, options: [])
-                                   print(json)
-                               } catch {
-                                   print(error)
-                               }
-                            }
-                  
-                       }
-                      task.resume()
-           }        let imagePickrController = UIImagePickerController()
+        let imagePickrController = UIImagePickerController()
         imagePickrController.delegate = self
         let actionSheet = UIAlertController(title: "Photo Source", message: "choose a source", preferredStyle: .actionSheet )
                 actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
@@ -87,10 +87,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     imageView.image = image
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
-                super.didReceiveMemoryWarning()
-    }
-    */
+                super.didReceiveMemoryWarning()     }
 }
-}
+
   
