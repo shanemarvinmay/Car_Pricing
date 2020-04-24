@@ -77,7 +77,6 @@
                                     <color key="titleColor" red="0.85458675011452001" green="0.35071620344736493" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="retrieveValue:" destination="BvF-aM-BW7" eventType="touchUpInside" id="Moy-oG-H1Q"/>
                                     <action selector="valueCalc:" destination="BvF-aM-BW7" eventType="touchUpInside" id="fW8-5o-bxV"/>
                                 </connections>
                             </button>
@@ -89,27 +88,8 @@
                                     <action selector="validateBtn:" destination="BvF-aM-BW7" eventType="touchUpInside" id="aBT-1F-xm5"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$:" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MYJ-fe-ueI">
-                                <rect key="frame" x="62" y="552" width="290" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="calcTapped:" destination="BvF-aM-BW7" eventType="touchUpInside" id="9rW-ru-eoL"/>
-                                </connections>
-                            </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6ku-WU-igI">
-                                <rect key="frame" x="208" y="636" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="BbI-s3-aiM">
-                                <rect key="frame" x="185" y="621" width="61" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VALUE HERE " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xus-zl-ors">
-                                <rect key="frame" x="129" y="621" width="179" height="35"/>
+                                <rect key="frame" x="119" y="577" width="179" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -121,7 +101,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="EXPLORE" image="car" catalog="system" id="hCd-xg-7Sy"/>
                     <connections>
-                        <outlet property="networkingIndicator" destination="BbI-s3-aiM" id="qHM-l4-K60"/>
                         <outlet property="picker1TextField" destination="A7G-bo-mqr" id="kzV-zy-diy"/>
                         <outlet property="pickerTextField" destination="ZdM-X6-dpM" id="uPE-RS-XPE"/>
                         <outlet property="validateMPGtextfield" destination="KzF-x5-4Kw" id="WzL-Dk-Gib"/>
