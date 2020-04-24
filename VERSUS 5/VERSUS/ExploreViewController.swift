@@ -50,51 +50,65 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         task.resume()
 }
     
+    @IBOutlet weak var networkingIndicator: UIActivityIndicatorView!
+    @IBAction func retrieveValue(_ sender: Any) {
+        networkingIndicator.isHidden = false
+        networkingIndicator.startAnimating()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+         let mpg = validateMPGtextfield.text!
+               let mileage = validateMileagetextfield.text!
+               let make = pickerTextField.text!
+               let model = picker1TextField.text!
+               
+
+               //Get request for Car value---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+               //Create URL
+               let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)35&milage=\(mileage)")
+               guard let requestUrl = url else { fatalError() }
+               
+               //Create request for URL
+               var request = URLRequest(url: requestUrl)
+               
+               //Specifying method to use for HTTP
+               request.httpMethod = "GET"
+               
+               //Set Header for HTTP request
+               request.setValue("application/json", forHTTPHeaderField: "Accept")
+               //Send HTTP request
+               let task = URLSession.shared.dataTask(with: request) {
+                   (data, response, error) in
+                   
+                   //Check for errors
+                   if let error = error {
+                       print ("Error took place \(error)")
+                       return
+                   }
+               //Reading HTTP response status code
+                   if let response = response as? HTTPURLResponse {
+                       print("Response HTTP Status code: \(response.statusCode)")
+                       let allHeaderFields: [AnyHashable : Any] = response.allHeaderFields
+                       //reads all HTTP response headers
+                       print("All headers: \(allHeaderFields)")
+                   }
+                //Converting the response data of HTTP to string
+                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("Response data string: \n \(dataString)")
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: data, options: [])
+                            print(json)
+                        } catch {
+                            print(error)
+                        }
+                     }
+                self.startParsing(data: data! as NSData)
+                }
+               task.resume()
+    }
+    @IBOutlet weak var valueDisp: UILabel!
     @IBAction func calcTapped(_ sender: Any) {
        // textView.text = (data)
         
-        let mpg = validateMPGtextfield.text!
-        let mileage = validateMileagetextfield.text!
-        let make = pickerTextField.text!
-        let model = picker1TextField.text!
-        
-
-        //Get request for Car value---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Create URL
-        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)35&milage=\(mileage)")
-        guard let requestUrl = url else { fatalError() }
-        
-        //Create request for URL
-        var request = URLRequest(url: requestUrl)
-        
-        //Specifying method to use for HTTP
-        request.httpMethod = "GET"
-        
-        //Set Header for HTTP request
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        //Send HTTP request
-        let task = URLSession.shared.dataTask(with: request) {
-            (data, response, error) in
-            
-            //Check for errors
-            if let error = error {
-                print ("Error took place \(error)")
-                return
-            }
-        //Reading HTTP response status code
-            if let response = response as? HTTPURLResponse {
-                print("Response HTTP Status code: \(response.statusCode)")
-                let allHeaderFields: [AnyHashable : Any] = response.allHeaderFields
-                //reads all HTTP response headers
-                print("All headers: \(allHeaderFields)")
-            }
-            //Converting the response data of HTTP to string
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string: \n \(dataString)")
-                 }
-        }
-
-        task.resume()    }
+           }
     
     //Fix username - work with angelica to figure out a way to get username requested over multple controllers and add years info to stop hard coding
     //POST request ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -117,6 +131,8 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
       
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkingIndicator.isHidden = true
     //assign delegates
     validateMPGtextfield.delegate = self
     validateMileagetextfield.delegate = self
