@@ -20,7 +20,8 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var validateMileagetextfield: UITextField!
     @IBAction func validateBtn(_ sender: Any) {  /*Something goes here */                   }
     //Create an alert when you calculate value from given inputs----------------------------------------------------------------------------------------------------------------------------
-    @IBAction func valueCalc(_ sender: UIButton)
+      @IBOutlet weak var valueDisp: UILabel!
+      @IBAction func valueCalc(_ sender: UIButton)
     {
         let mpg = validateMPGtextfield.text!
         let mileage = validateMileagetextfield.text!
@@ -28,29 +29,28 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let model = picker1TextField.text!
                                                 //let user = username.text!
                                                // let yr = year.text!
-//POST request for Car value--------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Create URL
-    let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
-        guard let requestURL = url else { fatalError()}
-    var request = URLRequest(url: requestURL)
-        request.httpMethod = "POST"
-    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("error: \(error)")
-            } else {
-                if let response = response as? HTTPURLResponse {
-                    print("statusCode: \(response.statusCode)")
-                }
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("data: \(dataString)")
-                }
-            }
+let urlString = "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)&milage=\(mileage)"
+        guard let getRequestURL = URL(string: urlString) else { return }
+    URLSession.shared.dataTask(with: getRequestURL) { (data, response, error) in
+    if error != nil {
+        print(error!.localizedDescription)
+                    }
+    guard let data = data else { return }
+    do {
+    //Decode data
+        let JSONData = try JSONDecoder().decode(herokuApp.self, from: data)
+                        
+    //Get back to the main queue
+    DispatchQueue.main.async {
+        self.valueDisp.text = JSONData.value
         }
-        task.resume()
-}
+    } catch let jsonError {
+    print(jsonError)
+    }
+}.resume()
+    }
     
-    @IBOutlet weak var valueDisp: UILabel!
-    
+  
     //Fix username - work with angelica to figure out a way to get username requested over multple controllers and add years info to stop hard coding
     //Picker View Section-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var pickerTextField: UITextField!
@@ -69,30 +69,25 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Get request for Car value---------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //POST request for Car value--------------------------------------------------------------------------------------------------------------------------------------------------------------
         //Create URL
-        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=m&model=m&year=2020&mpg=35&milage=m")
-        guard let getRequestURL = url else { fatalError() }
-            var request = URLRequest(url: getRequestURL)
-            request.httpMethod = "GET"
-        
-        URLSession.shared.dataTask(with: getRequestURL) { (data, response, error) in
-                    if error != nil {
-                        print(error!.localizedDescription)
-                    }
-                    guard let data = data else { return }
-                    do {
-                        //Decode data
-                        let JSONData = try JSONDecoder().decode(herokuApp.self, from: data)
-                        
-                        //Get back to the main queue
-                        DispatchQueue.main.async {
-                            self.valueDisp.text = JSONData.value
+            let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=m&model=m&year=y&mpg=m&milage=m")
+                guard let requestURL = url else { fatalError()}
+            var request = URLRequest(url: requestURL)
+                request.httpMethod = "POST"
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    if let error = error {
+                        print("error: \(error)")
+                    } else {
+                        if let response = response as? HTTPURLResponse {
+                            print("statusCode: \(response.statusCode)")
                         }
-                    } catch let jsonError {
-                        print(jsonError)
+                        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                            print("data: \(dataString)")
+                        }
                     }
-                }.resume()
+                }
+                task.resume()
 
     //assign delegates
     validateMPGtextfield.delegate = self
