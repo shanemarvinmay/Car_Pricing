@@ -10,53 +10,50 @@ import Foundation
 import UIKit
 
 class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    //Validatin for MPG and Mileage will be added on 04/25/20 Section---------------------------------------------------------------------------------------------------------------------
+//Validatin for MPG and Mileage will be added on 04/25/20 Section---------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var validateMPGtextfield: UITextField!
     @IBOutlet weak var validateMileagetextfield: UITextField!
     @IBAction func validateBtn(_ sender: Any) {  /*Something goes here */                   }
-    //Create an alert when you calculate value from given inputs----------------------------------------------------------------------------------------------------------------------------
-     
-     struct CarVAlue: Codable {
-         let value: String
-     }
+    
+    
+//Create an alert when you calculate value from given inputs----------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var valueDisp: UILabel!
       @IBAction func valueCalc(_ sender: UIButton) {
         let mpg = validateMPGtextfield.text!
         let mileage = validateMileagetextfield.text!
         let make = pickerTextField.text!
         let model = picker1TextField.text!
-       // let valueDisp = String ()
-       
-                                                //let user = username.text!
-                                               // let yr = year.text!
-      
-        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)&milage=\(mileage)")
+            // let yr = year.text!
+    let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)&milage=\(mileage)")
     guard let getRequestURL = url else { fatalError() }
         
     var request = URLRequest(url: getRequestURL)
-        request.httpMethod = "GET"
+    request.httpMethod = "GET"
     
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("error: \(error)")
-            } else {
-                if let response = response as? HTTPURLResponse {
-                    print("statusCode: \(response.statusCode)")
-                }
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("data: \(dataString)")
-                    DispatchQueue.main.async {
-                        //let carValue = CarVAlue(value: "\(valueDisp)")
-                        self.valueDisp.text = "$\(dataString)"
-                    }
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        if let error = error {
+            print("error: \(error)")
+        } else {
+            if let response = response as? HTTPURLResponse {
+                print("statusCode: \(response.statusCode)")
+            }
+        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            print("data: \(dataString)")
+            DispatchQueue.main.async {
+                self.valueDisp.text = "$\(dataString)"
                 }
             }
         }
-   task.resume()
+    }
+task.resume()
 }
     
-      //Fix username - work with angelica to figure out a way to get username requested over multple controllers and add years info to stop hard coding
-    //Picker View Section-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    
+//Fix username - work with angelica to figure out a way to get username requested over multple controllers and add years info to stop hard coding
+    
+    
+    //Picker View Section----------------------------------------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var pickerTextField: UITextField!
     @IBOutlet weak var picker1TextField: UITextField!
     //content for pickers: Make = PickerTextField and Model = Picker1TextField errors for the following: anyone with the model name mention more than once contains a fatal error
@@ -73,35 +70,35 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         let mpg = validateMPGtextfield.text!
-               let mileage = validateMileagetextfield.text!
-               let make = pickerTextField.text!
-               let model = picker1TextField.text!
-                                                       //let user = username.text!
-                                                      // let yr = year.text!
-        
-       let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
-            guard let requestURL = url else { fatalError()}
-        var request = URLRequest(url: requestURL)
-            request.httpMethod = "POST"
-        let getString = "userId=300&title=My urgent task&completed=false";
+        let mpg = validateMPGtextfield.text!
+        let mileage = validateMileagetextfield.text!
+        let make = pickerTextField.text!
+        let model = picker1TextField.text!
+//let user = username.text!
+// let yr = year.text!
+//POST Request ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
+    guard let requestURL = url else { fatalError()}
+    var request = URLRequest(url: requestURL)
+        request.httpMethod = "POST"
+    let getString = "userId=300&title=My urgent task&completed=false";
         request.httpBody = getString.data(using: String.Encoding.utf8)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    print("error: \(error)")
-                } else {
-                    if let response = response as? HTTPURLResponse {
-                        print("statusCode: \(response.statusCode)")
-                    }
-                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                        print("data: \(dataString)")
-                        
-                                           }
-                }
-            }
-            task.resume()
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        if let error = error {
+           print("error: \(error)")
+    } else {
+      if let response = response as? HTTPURLResponse {
+          print("statusCode: \(response.statusCode)")
+           }
+      if let data = data, let dataString = String(data: data, encoding: .utf8) {
+          print("data: \(dataString)")
+        }
+    }
+}
+task.resume()
+
         
-             //assign delegates
+//assign delegates ----------------------------------------------------------------------------------------------------------------------------------------------------------
     validateMPGtextfield.delegate = self
     validateMileagetextfield.delegate = self
     picker1TextField.delegate = self
@@ -114,7 +111,7 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
-    //Mark : Picker View----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Mark : Picker View-------------------------------------------------------------------------------------------------------------------------------------------------------------
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -128,6 +125,8 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         print("Selected item is", current_arr[row])
         active_textFiled.text = current_arr[row]
     }
+    
+    
 //Alert section for Explore Page with error message or any message pop up ----------------------------------------------------------------------------------------------------------
      func displayAlert(msgTitle:String, msgContent:String){
                let alertController = UIAlertController(title: msgTitle,message: msgContent, preferredStyle: .alert)
