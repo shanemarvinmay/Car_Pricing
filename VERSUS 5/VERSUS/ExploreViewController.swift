@@ -10,50 +10,52 @@ import Foundation
 import UIKit
 
 class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    
     //Validatin for MPG and Mileage will be added on 04/25/20 Section---------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var validateMPGtextfield: UITextField!
     @IBOutlet weak var validateMileagetextfield: UITextField!
     @IBAction func validateBtn(_ sender: Any) {  /*Something goes here */                   }
     //Create an alert when you calculate value from given inputs----------------------------------------------------------------------------------------------------------------------------
-      @IBOutlet weak var valueDisp: UILabel!
-   
-      @IBAction func valueCalc(_ sender: UIButton)
-    {
+     
+     struct CarVAlue: Codable {
+         let value: String
+     }
+    @IBOutlet weak var valueDisp: UILabel!
+      @IBAction func valueCalc(_ sender: UIButton) {
         let mpg = validateMPGtextfield.text!
         let mileage = validateMileagetextfield.text!
         let make = pickerTextField.text!
         let model = picker1TextField.text!
-       let valueDisp = String ()
+       // let valueDisp = String ()
+       
                                                 //let user = username.text!
                                                // let yr = year.text!
+      
         let url = URL(string: "https://vast-gorge-25891.herokuapp.com/car-value?make=\(make)&model=\(model)&year=2020&mpg=\(mpg)&milage=\(mileage)")
-        guard let getRequestURL = url else { fatalError() }
+    guard let getRequestURL = url else { fatalError() }
         
-        var request = URLRequest(url: getRequestURL)
+    var request = URLRequest(url: getRequestURL)
         request.httpMethod = "GET"
     
-   let task = URLSession.shared.dataTask(with: getRequestURL) { (data, response, error) in
-    if let error = error {
-        print("Error in Play \(error)")
-        return
-    }
-    if let data = data, let dataString = String(data: data, encoding: .utf8) {
-        print("Response data string: \n \(dataString)")
-                        
-    //Get back to the main queue
-        //DispatchQueue.global(qos: .background).async {
-            //print("BEFORE")
-        DispatchQueue.main.sync {
-            self.valueDisp.text = "Value: $\(valueDisp)"
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    print("statusCode: \(response.statusCode)")
+                }
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("data: \(dataString)")
+                    DispatchQueue.main.async {
+                        //let carValue = CarVAlue(value: "\(valueDisp)")
+                        self.valueDisp.text = "$\(dataString)"
+                    }
+                }
             }
         }
-}
    task.resume()
-    }
+}
     
-  
-    //Fix username - work with angelica to figure out a way to get username requested over multple controllers and add years info to stop hard coding
+      //Fix username - work with angelica to figure out a way to get username requested over multple controllers and add years info to stop hard coding
     //Picker View Section-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var pickerTextField: UITextField!
     @IBOutlet weak var picker1TextField: UITextField!
@@ -75,7 +77,6 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                let mileage = validateMileagetextfield.text!
                let make = pickerTextField.text!
                let model = picker1TextField.text!
-              // valueDisp.text = String ()
                                                        //let user = username.text!
                                                       // let yr = year.text!
         
@@ -94,11 +95,13 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     }
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
                         print("data: \(dataString)")
-                    }
+                        
+                                           }
                 }
             }
             task.resume()
-    //assign delegates
+        
+             //assign delegates
     validateMPGtextfield.delegate = self
     validateMileagetextfield.delegate = self
     picker1TextField.delegate = self
