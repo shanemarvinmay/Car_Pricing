@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -273,7 +273,9 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="n0V-MT-AGh" kind="show" id="DPI-xi-Jr0"/>
+                                    <segue destination="n0V-MT-AGh" kind="popoverPresentation" popoverAnchorView="Jix-o6-0mK" id="v22-Fq-cuE">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4j-q7-Awr">
@@ -500,6 +502,7 @@
                                             </preferredSymbolConfiguration>
                                         </state>
                                         <connections>
+                                            <action selector="signin:" destination="n0V-MT-AGh" eventType="touchUpInside" id="zer-dC-Dj6"/>
                                             <segue destination="znn-Uj-iMO" kind="show" id="Tcg-vD-oMT"/>
                                         </connections>
                                     </button>
@@ -580,6 +583,12 @@
                         <viewLayoutGuide key="safeArea" id="c44-Pb-eQr"/>
                     </view>
                     <navigationItem key="navigationItem" id="hUG-M5-mwc"/>
+                    <connections>
+                        <outlet property="errorLabel" destination="PAE-dU-Ekq" id="A1H-Md-44c"/>
+                        <outlet property="login" destination="Xld-Sy-2nN" id="JeP-Ru-1y9"/>
+                        <outlet property="passWord" destination="VCT-mK-Vru" id="YtL-89-RLm"/>
+                        <outlet property="userName" destination="Wk9-tZ-x5w" id="vwO-Vb-JeW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwT-I2-ny8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -678,6 +687,7 @@
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="arrow.right.circle" catalog="system"/>
                                 <connections>
+                                    <action selector="emailconfirm:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="PmP-tg-aiK"/>
                                     <action selector="getQuestion:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="Cn9-ol-gOh"/>
                                 </connections>
                             </button>
@@ -736,6 +746,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ePA-B1-dz3"/>
                     <connections>
+                        <outlet property="answer" destination="OyT-3S-hff" id="dOv-OS-v3J"/>
+                        <outlet property="email" destination="HZs-an-cQs" id="Q6F-DV-rSM"/>
                         <outlet property="securityQuestion" destination="UGR-lv-yFo" id="mRx-Hl-up6"/>
                     </connections>
                 </viewController>
@@ -919,28 +931,28 @@
             <point key="canvasLocation" x="-1310" y="-148"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6xg-aX-n3d"/>
+        <segue reference="i5f-l5-Ixv"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="BW" width="2310" height="1733"/>
         <image name="Chevy" width="1280" height="960"/>
         <image name="Ford" width="1600" height="500"/>
         <image name="Image-4" width="1600" height="470"/>
         <image name="Main" width="2310" height="1733"/>
-        <image name="arrow.left.to.line" catalog="system" width="64" height="50"/>
-        <image name="arrow.right.circle" catalog="system" width="64" height="60"/>
-        <image name="backward.end" catalog="system" width="64" height="60"/>
-        <image name="camera.on.rectangle" catalog="system" width="64" height="48"/>
-        <image name="car" catalog="system" width="64" height="46"/>
-        <image name="largecircle.fill.circle" catalog="system" width="64" height="60"/>
+        <image name="arrow.left.to.line" catalog="system" width="128" height="101"/>
+        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
+        <image name="backward.end" catalog="system" width="128" height="120"/>
+        <image name="camera.on.rectangle" catalog="system" width="128" height="96"/>
+        <image name="car" catalog="system" width="128" height="93"/>
+        <image name="largecircle.fill.circle" catalog="system" width="128" height="121"/>
         <image name="lincoln " width="512" height="286"/>
         <image name="orange" width="518" height="253"/>
-        <image name="person" catalog="system" width="64" height="58"/>
-        <image name="person.crop.circle.badge.plus" catalog="system" width="64" height="50"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.crop.circle.badge.plus" catalog="system" width="128" height="101"/>
         <image name="red" width="461" height="184"/>
         <image name="trouble" width="540" height="960"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="veb-We-2yx"/>
-        <segue reference="i5f-l5-Ixv"/>
-    </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
