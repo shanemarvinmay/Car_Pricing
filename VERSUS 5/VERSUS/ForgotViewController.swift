@@ -8,52 +8,54 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
-class ForgotViewController: UIViewController {
-    @IBAction func getLogin(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Password: ", message: "GemmeMy__shh", preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil))
-        present(alertController, animated: true, completion: nil)
-       
-    }
-    @IBOutlet weak var securityQuestion: UILabel!
-    @IBAction func getQuestion(_ sender: UIButton) {
-        securityQuestion.text = "What is your favorite ice cream?"
-    }
-    override func viewDidLoad() {
-    super.viewDidLoad()
+class ForgotViewController: UIViewController, UITextFieldDelegate {
     
-}
-    /*if let user = Auth.auth().currentUser{
-                let currentUserID = user.uid
-                ifUserIsMember(userId:currentUserID){(exist)->() in
-                    if exist == true{
-                        self.window?.rootViewController = CustomTabBarController()
-                    } else {
-                        self.window?.rootViewController = UINavigationController(rootViewController: LoginController())
-                    }
-                }
-                return true
-            } else {
-                self.window?.rootViewController = UINavigationController(rootViewController: LoginController())
-                return true
-            }
-        }
-         
-        func ifUserIsMember(userId:String,completionHandler:@escaping((_ exists : Bool)->Void)){
-            print("ifUserIsMember")
-            let ref = Database.database().reference()
-            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.hasChild(userId) {
-                 print("user exists")
-                    completionHandler(true)
-                } else {
-                    print("user doesn't exist")
-                    completionHandler(false)
-                }
-            })
-        }
-     */
+    
+    @IBOutlet weak var securityQuestion: UILabel!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var answer: UITextField!
+    
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        
+        email.delegate = self
+        answer.delegate = self
+        
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
+    
+    @IBAction func emailconfirm(_ sender: Any) {
      
+//        let email = email.text
+        email.text = "Email \(email.text)"
+        
+        
+        //   {
+    //displayAlert(msgTitle: "Not Valid Email", msgContent: "The email given is not a valid email address")
+    
+    }
+        
+    //override func touchesBegan( touches: Set<UITouch>, with event: UIEvent?)
+   // {
+      //  email.resignFirstResponder()
+    //}
+               
+        
+                       }
+func answertoquestion(_ sender: Any)
+    {
+        //answer.text = "Answer\(answer.text)"
+        return
+}
+    
 
+//truct ForgotViewController_Previews: PreviewProvider {
+   // static var previews: some View {
+      //  /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    
