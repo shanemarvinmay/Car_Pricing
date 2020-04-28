@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="BvF-aM-BW7" customClass="ExploreViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hc5-bR-n8R">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trouble" translatesAutoresizingMaskIntoConstraints="NO" id="0yE-Cg-a2B">
@@ -102,7 +102,7 @@
             <objects>
                 <viewController id="XD4-pq-SjM" customClass="AccountViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HfD-mL-PbR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lincoln " translatesAutoresizingMaskIntoConstraints="NO" id="gaY-qV-qOU">
@@ -159,7 +159,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umP-KO-FLF">
-                                <rect key="frame" x="0.0" y="395" width="414" height="364"/>
+                                <rect key="frame" x="0.0" y="449" width="414" height="364"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="2g1-Qs-4Qu" kind="embed" id="L0M-0M-EEE"/>
@@ -177,7 +177,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-gv-rqe">
-                                <rect key="frame" x="0.0" y="395" width="414" height="364"/>
+                                <rect key="frame" x="0.0" y="449" width="414" height="364"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="3ri-0B-L6b" kind="embed" id="aG3-Km-noa"/>
@@ -493,7 +493,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xld-Sy-2nN">
-                                        <rect key="frame" x="60" y="344" width="225" height="34"/>
+                                        <rect key="frame" x="60" y="344" width="225" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.4637305699" green="0.41759592909999999" blue="0.33911452660000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Get Started ">
@@ -502,8 +502,7 @@
                                             </preferredSymbolConfiguration>
                                         </state>
                                         <connections>
-                                            <action selector="signin:" destination="n0V-MT-AGh" eventType="touchUpInside" id="zer-dC-Dj6"/>
-                                            <segue destination="znn-Uj-iMO" kind="show" id="Tcg-vD-oMT"/>
+                                            <action selector="Logintapped:" destination="n0V-MT-AGh" eventType="touchUpInside" id="WFF-8k-17h"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCT-mK-Vru">
@@ -599,14 +598,14 @@
             <objects>
                 <viewController id="uKJ-dj-nWG" customClass="CameraViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O2n-mc-fcb" customClass="CameraViewController">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M7d-Yf-1Kh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPO-zE-FNT">
-                                <rect key="frame" x="165" y="695" width="85" height="70"/>
+                                <rect key="frame" x="165" y="749" width="85" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="tintColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" backgroundImage="largecircle.fill.circle" catalog="system">
@@ -932,6 +931,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="YA4-Zw-A2E"/>
         <segue reference="6xg-aX-n3d"/>
         <segue reference="i5f-l5-Ixv"/>
     </inferredMetricsTieBreakers>
