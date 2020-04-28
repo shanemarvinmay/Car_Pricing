@@ -192,7 +192,7 @@
                     <connections>
                         <outlet property="account" destination="Lag-gv-rqe" id="zb1-71-tSC"/>
                         <outlet property="circularImage" destination="Ak8-WS-1sn" id="NWa-cw-dkD"/>
-                        <outlet property="history" destination="z9b-oz-Grb" id="26y-ZV-hxQ"/>
+                        <outlet property="history" destination="umP-KO-FLF" id="noP-sU-hFS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyY-1a-7fJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-B9-cXb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862.00000000000045"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVEWIRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gso-KD-ivp">
                                 <rect key="frame" x="-5" y="95" width="394" height="75"/>
