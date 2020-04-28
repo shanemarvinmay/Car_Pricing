@@ -47,54 +47,52 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         
    func uploadImage(image: UIImage) {
-          // loadingView.start()
+    let url = URL(string:"https://ml-car-value.herokuapp.com/image")
+    guard let requestURL = url else { fatalError() }
+    var request = URLRequest(url: requestURL)
+    request.httpMethod = "POST"
+    // loadingView.start()
            getBase64Image(image: image) { base64Image in
                let boundary = "Boundary-\(UUID().uuidString)"
-
-               var request = URLRequest(url: URL(string: "https://ml-car-value.herokuapp.com/image")!)
-               //request.addValue("Client-ID \(self.CLIENT_ID)", forHTTPHeaderField: "Authorization")
-              // request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-
-               request.httpMethod = "POST"
 
                var body = ""
                body += "--\(boundary)\r\n"
                body += "Content-Disposition:form-data; name=\"image\""
                body += "\r\n\r\n\(base64Image ?? "")\r\n"
                body += "--\(boundary)--\r\n"
-               let postData = body.data(using: .utf8)
+            let postData = body.data(using: String.Encoding.utf8)
 
-               request.httpBody = postData
+            request.httpBody = postData
 
-               URLSession.shared.dataTask(with: request) { data, response, error in
+               URLSession.shared.dataTask(with: request) { (data, response, error) in
                    if let error = error {
                        print("failed with error: \(error)")
                        return
-                   }
-                if let response = response as? HTTPURLResponse {
+                   }else {
+                    if let response = response as? HTTPURLResponse {
                     print("StatusCode: \(response.statusCode)")
-                       //(200...1299).contains(response.statusCode) else {
-                       //print("server error")
-                      // return
                    }
-                if let mimeType = response?.mimeType, mimeType == "application/json", let data = data, let dataString = String(data: data, encoding: .utf8) {
-                       DispatchQueue.main.async {
+                //if let mimeType = response?.mimeType, mimeType == "application/json",
+                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("Image upload results: \(dataString)")
+                    DispatchQueue.main.async {
                         //   self.loadingView.stop()
                         self.valueRequest.text = "$\(dataString)"
                        }
 
-                       print("Image upload results: \(dataString)")
+                       
 
-                       let parsedResult: [String: AnyObject]
-                       do {
-                           parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
-                           if let dataJson = parsedResult["data"] as? [String: Any] {
-                               print("Link is : \(dataJson["link"] as? String ?? "Link not found")")
-                               self.imgurUrl = dataJson["link"] as? String ?? ""
-                           }
-                       } catch {
+                       //let parsedResult: [String: AnyObject]
+                      // do {
+                         //  parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
+                         //  if let dataJson = parsedResult["data"] as? [String: Any] {
+                           //    print("Link is : \(dataJson["link"] as? String ?? "Link not found")")
+                           //    self.imgurUrl = dataJson["link"] as? String ?? ""
+                       //   }
+                    //  }catch {
                            // Display an error
-                       }
+                      // }
+                    }
                    }
                }.resume()
            }
