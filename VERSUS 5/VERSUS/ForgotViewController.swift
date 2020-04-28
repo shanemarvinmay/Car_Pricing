@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class ForgotViewController: UIViewController {
+    
+    
     @IBAction func getLogin(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Password: ", message: "GemmeMy__shh", preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil))

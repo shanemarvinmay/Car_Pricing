@@ -697,23 +697,23 @@
             </objects>
             <point key="canvasLocation" x="-4800" y="348.88392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--UpdateSQ View Controller-->
         <scene sceneID="zbc-bj-5W7">
             <objects>
-                <viewController id="2g1-Qs-4Qu" sceneMemberID="viewController">
+                <viewController id="2g1-Qs-4Qu" customClass="updateSQViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxt-VO-Rgo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="364"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2x-Q8-Cu1">
-                                <rect key="frame" x="6" y="196" width="150" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2x-Q8-Cu1">
+                                <rect key="frame" x="6" y="196" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-rg-56v">
-                                <rect key="frame" x="68" y="146" width="334" height="34"/>
+                                <rect key="frame" x="68" y="147" width="334" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -744,19 +744,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjd-4N-Icg">
+                                <rect key="frame" x="175" y="313" width="70" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="SUBMIT">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitBtn:" destination="2g1-Qs-4Qu" eventType="touchUpInside" id="OeP-c0-msu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70683807134628296" green="0.29548722505569458" blue="0.080474711954593658" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ezH-A8-4LU"/>
                     </view>
+                    <connections>
+                        <outlet property="USQ" destination="Deb-1J-74f" id="CT2-77-24O"/>
+                        <outlet property="password" destination="AVq-rg-56v" id="Bex-vd-epz"/>
+                        <outlet property="username" destination="z4p-hR-oXG" id="ACm-W0-6Y9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7n-OK-v9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1310" y="-531"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="gkq-KT-4jO">
             <objects>
-                <viewController id="3ri-0B-L6b" sceneMemberID="viewController">
+                <viewController id="3ri-0B-L6b" customClass="HistoryViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Yn-8V-AWc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="364"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -893,7 +909,7 @@
         <image name="trouble" width="540" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="veb-We-2yx"/>
+        <segue reference="cJZ-3t-DEV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

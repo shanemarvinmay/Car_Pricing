@@ -22,6 +22,8 @@
 		7B4C5B11240D80C700CF84E1 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C5B10240D80C700CF84E1 /* AccountViewController.swift */; };
 		ABD15EED2446B02B00FA60FE /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD15EEB2446B02B00FA60FE /* 180.png */; };
 		ABD15EEE2446B02B00FA60FE /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD15EEC2446B02B00FA60FE /* 120.png */; };
+		ABDEAA2D2458E9DC00E652A0 /* updateSQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDEAA2C2458E9DC00E652A0 /* updateSQViewController.swift */; };
+		ABDEAA2F2458EB0500E652A0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDEAA2E2458EB0500E652A0 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		7B4C5B12240DBFE900CF84E1 /* lincoln .jp2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lincoln .jp2"; sourceTree = "<group>"; };
 		ABD15EEB2446B02B00FA60FE /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
 		ABD15EEC2446B02B00FA60FE /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
+		ABDEAA2C2458E9DC00E652A0 /* updateSQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateSQViewController.swift; sourceTree = "<group>"; };
+		ABDEAA2E2458EB0500E652A0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = ../HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				7B4C5B0C240D808500CF84E1 /* ForgotViewController.swift */,
 				7B4C5B0E240D80AE00CF84E1 /* CameraViewController.swift */,
 				7B4C5B10240D80C700CF84E1 /* AccountViewController.swift */,
+				ABDEAA2E2458EB0500E652A0 /* HistoryViewController.swift */,
+				ABDEAA2C2458E9DC00E652A0 /* updateSQViewController.swift */,
 				7B4C5AF624098D7100CF84E1 /* Main.storyboard */,
 				7B4C5AF924098D7200CF84E1 /* Assets.xcassets */,
 				ABD15EEC2446B02B00FA60FE /* 120.png */,
@@ -174,6 +180,8 @@
 				7B4C5B07240D7FEE00CF84E1 /* ExploreViewController.swift in Sources */,
 				7B4C5AF524098D7100CF84E1 /* MainViewController.swift in Sources */,
 				7B4C5B0D240D808500CF84E1 /* ForgotViewController.swift in Sources */,
+				ABDEAA2D2458E9DC00E652A0 /* updateSQViewController.swift in Sources */,
+				ABDEAA2F2458EB0500E652A0 /* HistoryViewController.swift in Sources */,
 				7B4C5B09240D804200CF84E1 /* SignupViewController.swift in Sources */,
 				7B4C5B0F240D80AE00CF84E1 /* CameraViewController.swift in Sources */,
 				7B4C5AF124098D7100CF84E1 /* AppDelegate.swift in Sources */,
