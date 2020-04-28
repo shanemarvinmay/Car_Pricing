@@ -618,21 +618,22 @@
                                 <color key="backgroundColor" red="0.70683807134628296" green="0.29548722505569458" blue="0.080474711954593658" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPO-zE-FNT">
-                                <rect key="frame" x="124" y="424" width="181" height="93"/>
+                                <rect key="frame" x="155" y="424" width="122" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="tintColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Choose Option">
+                                        <fragment content="Photo Library">
                                             <attributes>
-                                                <color key="NSColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="NSColor" red="0.90821176767349243" green="0.87341094017028809" blue="0.39383161067962646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" metaFont="system" size="18"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="uploadButtonTapped:" destination="0ku-9I-lUn" eventType="touchUpInside" id="54q-xf-N0u"/>
+                                    <action selector="selectButtonTapped:" destination="0ku-9I-lUn" eventType="touchUpInside" id="Eil-Aa-gJB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VALUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajC-l2-w4B">
@@ -642,27 +643,22 @@
                                 <color key="textColor" red="1" green="0.28062454380000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dyW-it-ltO">
-                                <rect key="frame" x="68" y="641" width="270" height="2"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxB-Db-mjN">
+                                <rect key="frame" x="160" y="531" width="117" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egH-iW-B0H">
-                                <rect key="frame" x="193" y="651" width="25" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.86292568849999995" blue="0.83845893090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="UPLOAD"/>
+                                <connections>
+                                    <action selector="uploadImageButton:" destination="0ku-9I-lUn" eventType="touchUpInside" id="G3h-UZ-7iL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sgp-rH-YbK"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="CAMERA" image="camera" catalog="system" id="0yn-W3-leX"/>
                     <connections>
-                        <outlet property="imageProgress" destination="dyW-it-ltO" id="xp8-qD-sCb"/>
                         <outlet property="imageView" destination="M7d-Yf-1Kh" id="A8v-uq-QrT"/>
-                        <outlet property="progressLabel" destination="egH-iW-B0H" id="VQp-OF-GfF"/>
-                        <outlet property="uploadButton" destination="PPO-zE-FNT" id="qOP-1w-bMV"/>
+                        <outlet property="selectButton" destination="PPO-zE-FNT" id="55J-41-3iA"/>
                         <outlet property="valueRequest" destination="ajC-l2-w4B" id="Kj0-Fy-P0o"/>
                     </connections>
                 </viewController>

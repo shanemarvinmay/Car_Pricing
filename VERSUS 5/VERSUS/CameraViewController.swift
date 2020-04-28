@@ -15,123 +15,117 @@ import AVFoundation
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
 @IBOutlet weak var imageView: UIImageView!
-@IBOutlet weak var imageProgress: UIProgressView!
-@IBOutlet weak var progressLabel: UILabel!
 @IBOutlet weak var valueRequest: UILabel!
-    @IBOutlet weak var uploadButton: UIButton!
+@IBOutlet weak var selectButton: UIButton!
     
-override func viewDidLoad() {
-       super.viewDidLoad()
+    var selectedImage: UIImage!
+    var imagePicker = UIImagePickerController()
+   // var loadingView = LoadingView()
+    var imgurUrl: String = ""
+    
+    
+    // let CLIENT_ID = "MY_CLIENT_ID"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //loadingView.initilize(viewController: self)
     }
     
-    
-    //connections to storyboard: cameraview
     //Switching between camera and photos
-    @IBAction func uploadButtonTapped(_ sender: Any) {
-let imagePickrController = UIImagePickerController()
-    imagePickrController.delegate = self
-    
-let actionSheet = UIAlertController(title: "Photo Source", message: "choose a source", preferredStyle: .actionSheet )
-    
-    //Camera Access --------------------------------------- Camera Access
-    actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
-if UIImagePickerController.isSourceTypeAvailable(.camera){
-    imagePickrController.sourceType = .camera
-self.present(imagePickrController, animated: true, completion: nil)
-    }
-else {
-    print("Camera is Unavailable")
-    }
-    }))
-    
-    //Photo Libary Access ------------------------------------ Photo Library Access
-    actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action: UIAlertAction) in
-    imagePickrController.sourceType = .photoLibrary
-self.present(imagePickrController, animated: true, completion: nil) }))
-    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-self.present(actionSheet, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    
-    
-    
-    let myCGFloat = CGFloat()   //check how to code this
-    
-    
-    
-    
-//Convert image to data
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : AnyObject]) {  //info: [NSobject.InfoKey : Any]) {
-    let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-         picker.dismiss(animated: true, completion: nil)
-               uploadImage()
+    @IBAction func selectButtonTapped(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = false
+            imagePicker.modalPresentationStyle = .fullScreen
+            present(imagePicker, animated: true, completion: nil)
         }
+    }
     
-       // let imageData: Data = UIImageJPEGRepresentation(imageView.image, 1)
-    //Convert Data to base64 encoding
-   
-   
+@IBAction func uploadImageButton(_ sender: Any) {
+            uploadImage(image: selectedImage)
+        }
         
- 
-    func uploadImage() {
-        let imageData = imageView.image!.jpegData(compressionQuality: 1)
-        let imagestr = imageData!.base64EncodedString()
-        if(imageData == nil) { return }
-        self.uploadButton.isEnabled = false
-        
-        
-        let url = URL(string:" https://ml-car-value.herokuapp.com/image")
-     guard let requestURL = url else { fatalError() }  //Need this for next line to work
-        var request = URLRequest(url: requestURL)
-        request.httpMethod = "POST"
+   func uploadImage(image: UIImage) {
+          // loadingView.start()
+           getBase64Image(image: image) { base64Image in
+               let boundary = "Boundary-\(UUID().uuidString)"
 
-        let setValue = "Keep Alive";
-        request.httpBody = setValue.data(using: String.Encoding.utf8);
-        
-        
-        let task = URLSession.shared.dataTask(with: request  ) { (data, response, error) in
-            if let error = error {
-                print("Did Complete with Error\(error)")
-                let myAlert = UIAlertController(title: "Alert", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "Ok")
-                myAlert.show()
-                self.uploadButton.isEnabled = true
-            }
-            
-            
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-            print("Response given by data string:\n\(dataString)")
-               var uploadProgess:Float = Float(totalBytesSent) / Float (totaBytesExpectedToSend)
-                imageProgress.progress = uploadProgress
-                let progressPercent = Int(uploadProgress*100)
-                progressLabel.text = "\(progessPercent)%"
-                print(uploadProgess)
-                
-                
-                
-                
-            DispatchQueue.main.async {
-              let alert = UIAlertController(title: "Image Value", message: "The Estimated Price of vehicle: $\(dataString)", preferredStyle: .alert)
-              let okAction = UIAlertAction(title: "OKAY", style: .default, handler: nil)
-                  alert.addAction(okAction)
-              self.present(alert, animated: true)
-                    self.valueRequest.text = "$\(dataString)"
-                          }
-                      }
-                  }
+               var request = URLRequest(url: URL(string: "https://ml-car-value.herokuapp.com/image")!)
+               //request.addValue("Client-ID \(self.CLIENT_ID)", forHTTPHeaderField: "Authorization")
+              // request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
-        
-        
-            // let task = session.uploadTask(with: request, from: imageData!)
-        task.resume()
-}
+               request.httpMethod = "POST"
+
+               var body = ""
+               body += "--\(boundary)\r\n"
+               body += "Content-Disposition:form-data; name=\"image\""
+               body += "\r\n\r\n\(base64Image ?? "")\r\n"
+               body += "--\(boundary)--\r\n"
+               let postData = body.data(using: .utf8)
+
+               request.httpBody = postData
+
+               URLSession.shared.dataTask(with: request) { data, response, error in
+                   if let error = error {
+                       print("failed with error: \(error)")
+                       return
+                   }
+                if let response = response as? HTTPURLResponse {
+                    print("StatusCode: \(response.statusCode)")
+                       //(200...1299).contains(response.statusCode) else {
+                       //print("server error")
+                      // return
+                   }
+                if let mimeType = response?.mimeType, mimeType == "application/json", let data = data, let dataString = String(data: data, encoding: .utf8) {
+                       DispatchQueue.main.async {
+                        //   self.loadingView.stop()
+                        self.valueRequest.text = "$\(dataString)"
+                       }
+
+                       print("Image upload results: \(dataString)")
+
+                       let parsedResult: [String: AnyObject]
+                       do {
+                           parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
+                           if let dataJson = parsedResult["data"] as? [String: Any] {
+                               print("Link is : \(dataJson["link"] as? String ?? "Link not found")")
+                               self.imgurUrl = dataJson["link"] as? String ?? ""
+                           }
+                       } catch {
+                           // Display an error
+                       }
+                   }
+               }.resume()
+           }
+       }
+       
+
+       func getBase64Image(image: UIImage, complete: @escaping (String?) -> ()) {
+           DispatchQueue.main.async {
+            let imageData = image.jpegData(compressionQuality: 1)
+               let base64Image = imageData?.base64EncodedString(options: .lineLength64Characters)
+               complete(base64Image)
+           }
+       }
+
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+       if let pickedImage = info[.originalImage] as? UIImage {
+           selectedImage = pickedImage
+           imageView.image = selectedImage
+       }
+
       
-   
-    
+       dismiss(animated: true, completion: nil)
+   }
 
-//GET REQUEST: To get value from image --------------------------------------------------------------------------------------
-
+   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+       dismiss(animated: true, completion: nil)
+   }
     
 }
+  
+
+
+
+
