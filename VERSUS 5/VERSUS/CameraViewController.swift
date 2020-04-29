@@ -42,15 +42,21 @@ super.viewDidLoad()
 func uploadImage(image: UIImage) {
      loadingView.start()
      getBase64Image(image: image) { base64Image in
-       // _ = "Boundary-\(UUID().uuidString)"
+       let boundary = "Boundary-\(UUID().uuidString)"
     
 let url = URL(string:" https://ml-car-value.herokuapp.com/image")
     guard let requestURL = url else { fatalError() }  //Need this for next line to work
         var request = URLRequest(url: requestURL)
+        
+ request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
    request.httpMethod = "POST"
     
-    
-let setValue = "Keep Alive";
+    var setValue = " "
+        setValue += "--\(boundary)\r\n"
+        setValue += "Content-Disposition:form-data; name=\"image\""
+        setValue += "\r\n\r\n\(base64Image ?? "")\r\n"
+        setValue += "--\(boundary)--\r\n"
+
     request.httpBody = setValue.data(using: String.Encoding.utf8);
                
                
@@ -63,7 +69,7 @@ if let error = error {
                        //errorAlert.show()
         
 guard let response = response as? HTTPURLResponse,
-    (200...299).contains(response.statusCode) else {            //(200...299).contains(response.statusCode)
+    (200...299).contains(response.statusCode) else {          
                     print("server error")
                      return
              }
@@ -91,7 +97,7 @@ print("image upload results: \(dataString)")
     }
         func getBase64Image(image: UIImage, complete: @escaping (String?) -> ()) {
               DispatchQueue.main.async {
-                let imageData = image.jpegData(compressionQuality: 0.8)
+                let imageData = image.pngData()
                   let base64Image = imageData?.base64EncodedString(options: .lineLength64Characters)
                   complete(base64Image)
               }
