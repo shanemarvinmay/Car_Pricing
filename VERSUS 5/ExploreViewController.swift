@@ -13,12 +13,12 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 //Validatin for MPG and Mileage will be added on 04/25/20 Section---------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var validateMPGtextfield: UITextField!
     @IBOutlet weak var validateMileagetextfield: UITextField!
-    @IBAction func validateBtn(_ sender: Any) {  /*Something goes here */                   }
+    @IBAction func validateBtn(_ sender: Any) {  /*Something goes here */}
     
     
 //Create an alert when you calculate value from given inputs----------------------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var valueDisp: UILabel!
-      @IBAction func valueCalc(_ sender: UIButton) {
+    @IBAction func valueCalc(_ sender: Any) {
         let mpg = validateMPGtextfield.text!
         let mileage = validateMileagetextfield.text!
         let make = pickerTextField.text!
@@ -54,10 +54,10 @@ task.resume()
                 let mileage = validateMileagetextfield.text!
                 let make = pickerTextField.text!
                 let model = picker1TextField.text!
-                let user = welcomeLabel.text!
+             //   let user = welcomeLabel.text!
         // let yr = year.text!
         //POST Request ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=\(user)u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
+            let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
             guard let requestURL = url else { fatalError()}
             var request = URLRequest(url: requestURL)
                 request.httpMethod = "POST"
@@ -71,7 +71,6 @@ task.resume()
               if let data = data, let dataString = String(data: data, encoding: .utf8) {
                   print("data: \(dataString)")
                 }
-        // }
         }
         task.resume()
     }
@@ -156,16 +155,9 @@ task.resume()
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         validateMileagetextfield.resignFirstResponder()
     }
-    
      
 }
 
-
-
-
-
-
-//TEXT FIELDS ONLY ---------------------------------------------------------------------------------------------------------------------
 
 extension ExploreViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
