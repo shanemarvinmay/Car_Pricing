@@ -31,10 +31,8 @@ class ForgotViewController: UIViewController, UITextFieldDelegate {
     }
         
     @IBAction func getlogin(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Password: ", message: "u", preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil))
-        present(alertController, animated: true, completion: nil)
-        let user =  username.text!
+        
+                        let user =  username.text!
                           let Answer = answer.text!
         
         let url = URL(string: "https://vast-gorge-25891.herokuapp.com/forgot-password?username=\(user)&securityAnswer=\(Answer)")!
@@ -50,8 +48,8 @@ class ForgotViewController: UIViewController, UITextFieldDelegate {
                     print("statusCode: \(response.statusCode)")
                 }
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    self.displayAlert(msgTitle: "OK", msgContent: "password is u")
-                    return
+                  //  self.displayAlert(msgTitle: "OK", msgContent: "password is u")
+                    //return
                  print("data: \(dataString)")
                 }
              
