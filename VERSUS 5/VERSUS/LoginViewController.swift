@@ -37,48 +37,58 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //Utilities.styleFilledButton(login)
         
     }
+      func displayAlert(msgTitle:String, msgContent:String){
+        let alertController = UIAlertController(title: msgTitle,message: msgContent, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
 
     
     @IBAction func Logintapped(_ sender: Any) {
         
-        let username =  userName.text
-                  let password = passWord.text
+    
+        let username =  userName.text!
+                   let password = passWord.text!
 
-                  if (username == "" || password == "")
-              {
-                  return
-          }
+                   if (userName.text!.isEmpty || passWord.text!.isEmpty) {
+                       
+                    print(" Username/Password is invalid")
+                    return
+                   }
+               
 
-        dologin(user: username!, psw: password!)
-        
-    }
-    func dologin( user:String, psw:String)
-    {
-        
-        let url = URL(string: "https://vast-gorge-25891.herokuapp.com/login?username=\(userName))&password=\( passWord)")!
-        // session = URLSession.shared
-        let request = NSMutableURLRequest(url:url)
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("error: \(error)")
-            } else {
-                if let response = response as? HTTPURLResponse {
-                    print("statusCode: \(response.statusCode)")
-                }
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("data: \(dataString)")
-                }
-            }
-        }
-        task.resume()
-    }
-        
-        
-}
-           
+                   let url = URL(string: "https://vast-gorge-25891.herokuapp.com/login?username=\( username)&password=\(password)")!
+                       // session = URLSession.shared
+                   let request = NSMutableURLRequest(url:url)
+                   request.httpMethod = "GET"
+                   
+                   let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                       if let error = error {
+                           print("error: \(error)")
+                       } else {
+                           if let response = response as? HTTPURLResponse {
+                               print("statusCode: \(response.statusCode)")
+                           }
+                           if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                            print("data: \(dataString)")
+                           }
+                        
+                       }
+                   }
+                   task.resume()
+        //let AccountViewController = self.storyboard?.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+        //self.navigationController?.pushViewController(AccountViewController, animated: true)
+
+     
+           }
+     
+               
+           }
+
+
 
         
         

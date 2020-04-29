@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="BvF-aM-BW7" customClass="ExploreViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hc5-bR-n8R">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="trouble" translatesAutoresizingMaskIntoConstraints="NO" id="0yE-Cg-a2B">
@@ -53,7 +53,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="arrow.left.to.line" catalog="system"/>
                                 <connections>
-                                    <segue destination="n0V-MT-AGh" kind="show" id="cJZ-3t-DEV"/>
+                                    <segue destination="XD4-pq-SjM" kind="show" id="KxA-4t-QPQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jkp-Tx-FNb">
@@ -101,8 +101,8 @@
         <scene sceneID="9pq-Ol-UVb">
             <objects>
                 <viewController id="XD4-pq-SjM" customClass="AccountViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HfD-mL-PbR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="explore" id="HfD-mL-PbR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lincoln " translatesAutoresizingMaskIntoConstraints="NO" id="gaY-qV-qOU">
@@ -159,7 +159,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umP-KO-FLF">
-                                <rect key="frame" x="0.0" y="449" width="414" height="364"/>
+                                <rect key="frame" x="0.0" y="395" width="414" height="364"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="2g1-Qs-4Qu" kind="embed" id="L0M-0M-EEE"/>
@@ -177,7 +177,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-gv-rqe">
-                                <rect key="frame" x="0.0" y="449" width="414" height="364"/>
+                                <rect key="frame" x="0.0" y="395" width="414" height="364"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="3ri-0B-L6b" kind="embed" id="aG3-Km-noa"/>
@@ -217,7 +217,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myo-Xc-Fpa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3064" y="-352"/>
+            <point key="canvasLocation" x="-3055" y="-426"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -507,6 +507,7 @@
                                         </state>
                                         <connections>
                                             <action selector="Logintapped:" destination="n0V-MT-AGh" eventType="touchUpInside" id="WFF-8k-17h"/>
+                                            <segue destination="znn-Uj-iMO" kind="show" id="rfq-hd-6Ad"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCT-mK-Vru">
@@ -602,14 +603,14 @@
             <objects>
                 <viewController id="uKJ-dj-nWG" customClass="CameraViewController" customModule="VERSUS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O2n-mc-fcb" customClass="CameraViewController">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M7d-Yf-1Kh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPO-zE-FNT">
-                                <rect key="frame" x="165" y="749" width="85" height="70"/>
+                                <rect key="frame" x="165" y="695" width="85" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="tintColor" red="0.85458675009999996" green="0.35071620339999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" backgroundImage="largecircle.fill.circle" catalog="system">
@@ -667,12 +668,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-vD-PJb">
-                                <rect key="frame" x="63" y="314" width="63" height="27"/>
+                                <rect key="frame" x="63" y="314" width="108" height="27"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="EMAIL: ">
+                                    <fragment content="USERNAME: ">
                                         <attributes>
                                             <color key="NSColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="17" name="Papyrus"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -690,8 +692,7 @@
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="arrow.right.circle" catalog="system"/>
                                 <connections>
-                                    <action selector="emailconfirm:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="PmP-tg-aiK"/>
-                                    <action selector="getQuestion:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="Cn9-ol-gOh"/>
+                                    <action selector="getQuestion:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="kwB-oR-Up3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-Mo-uRl">
@@ -702,7 +703,7 @@
                                     <color key="titleColor" red="1" green="0.86292568849999995" blue="0.83845893090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="n0V-MT-AGh" kind="show" id="6xg-aX-n3d"/>
+                                    <segue destination="n0V-MT-AGh" kind="show" id="1fj-tl-aJ9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpi-9s-xKx">
@@ -712,7 +713,7 @@
                                     <color key="titleColor" red="1" green="0.86292568849999995" blue="0.83845893090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="getLogin:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="dzb-Xl-2Ui"/>
+                                    <action selector="getlogin:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="CL7-xV-0CP"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ANSWER" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyT-3S-hff">
@@ -749,9 +750,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="ePA-B1-dz3"/>
                     <connections>
-                        <outlet property="answer" destination="OyT-3S-hff" id="dOv-OS-v3J"/>
-                        <outlet property="email" destination="HZs-an-cQs" id="Q6F-DV-rSM"/>
-                        <outlet property="securityQuestion" destination="UGR-lv-yFo" id="mRx-Hl-up6"/>
+                        <outlet property="Go" destination="kpi-9s-xKx" id="LsT-gB-NjE"/>
+                        <outlet property="answer" destination="OyT-3S-hff" id="DZj-xm-nG4"/>
+                        <outlet property="fetch" destination="kxX-no-qZH" id="Ele-Tg-lAr"/>
+                        <outlet property="securityQuestion" destination="UGR-lv-yFo" id="QWV-aK-LQo"/>
+                        <outlet property="username" destination="HZs-an-cQs" id="cWI-QD-Pci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44K-Ra-cKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -935,9 +938,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YA4-Zw-A2E"/>
-        <segue reference="6xg-aX-n3d"/>
+        <segue reference="1fj-tl-aJ9"/>
         <segue reference="i5f-l5-Ixv"/>
+        <segue reference="KxA-4t-QPQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
