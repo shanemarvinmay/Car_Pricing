@@ -9,12 +9,17 @@
 import Foundation
 import UIKit
 
+   var usernameGlobal = ""
+
 class LoginViewController: UIViewController {
       
 
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var passWord: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -37,11 +42,12 @@ class LoginViewController: UIViewController {
     //LoginUser 
         func loginUser(_ sender: Any) {
         
-        guard let _ = userName.text, userName.text?.count != 0 else {
+            guard let _ = userName.text, userName.text?.count != 0 else {
             errorLabel.isHidden = false
             errorLabel.text = "enter your email"
             return
         }
+            usernameGlobal = userName.text!
         guard let _ = passWord.text, passWord.text?.count != 0
             else {
                 errorLabel.isHidden = false
