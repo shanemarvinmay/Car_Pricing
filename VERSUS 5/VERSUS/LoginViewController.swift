@@ -37,14 +37,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //Utilities.styleFilledButton(login)
         
     }
-      func displayAlert(msgTitle:String, msgContent:String){
-        let alertController = UIAlertController(title: msgTitle,message: msgContent, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-    
+    func displayAlert(msgTitle:String, msgContent:String){
+        let alertController = UIAlertController(title: "Password: ", message: "u", preferredStyle: UIAlertController.Style.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,handler: nil))
+                present(alertController, animated: true, completion: nil)
+         
+         present(alertController, animated: true, completion: nil)
+     }
+  
 
     
     @IBAction func Logintapped(_ sender: Any) {
@@ -58,7 +58,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print(" Username/Password is invalid")
                     return
                    }
-               
+        
 
                    let url = URL(string: "https://vast-gorge-25891.herokuapp.com/login?username=\( username)&password=\(password)")!
                        // session = URLSession.shared
@@ -66,15 +66,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                    request.httpMethod = "GET"
                    
                    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                       if let error = error {
-                           print("error: \(error)")
+                    if error != nil {
+                          // print("error: \(error)")A
+                        self.displayAlert(msgTitle: "warning", msgContent: "The username/password is incorrect. Try again")
+                        return
                        } else {
                            if let response = response as? HTTPURLResponse {
                                print("statusCode: \(response.statusCode)")
                            }
                            if let data = data, let dataString = String(data: data, encoding: .utf8) {
                             print("data: \(dataString)")
-                           }
+                            
+                        }
                         
                        }
                    }
@@ -86,7 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
            }
      
                
-           }
+           
 
 
 
@@ -97,3 +100,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 
 
+}

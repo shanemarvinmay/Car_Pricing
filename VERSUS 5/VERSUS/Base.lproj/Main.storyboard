@@ -507,7 +507,7 @@
                                         </state>
                                         <connections>
                                             <action selector="Logintapped:" destination="n0V-MT-AGh" eventType="touchUpInside" id="WFF-8k-17h"/>
-                                            <segue destination="znn-Uj-iMO" kind="show" id="rfq-hd-6Ad"/>
+                                            <segue destination="znn-Uj-iMO" kind="show" id="YdY-kb-bWr"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCT-mK-Vru">
@@ -938,6 +938,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="YA4-Zw-A2E"/>
         <segue reference="1fj-tl-aJ9"/>
         <segue reference="i5f-l5-Ixv"/>
         <segue reference="KxA-4t-QPQ"/>
