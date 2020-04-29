@@ -11,19 +11,20 @@ import Foundation
 import UIKit
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    override func viewDidLoad() {
-    super.viewDidLoad()
-    }
+    
 @IBOutlet weak var imageView: UIImageView!
 @IBOutlet weak var valueRequest: UILabel!
 @IBOutlet weak var selectButton: UIButton!
     
 var selectedImage: UIImage!
 var imagePicker = UIImagePickerController()
+var loadingView = LoadingView()
 var imageUrl: String = ""
-// var loadingView = LoadingView()
     
-    
+    override func viewDidLoad() {
+super.viewDidLoad()
+  loadingView.initilize(viewController: self)
+    }
 //Switching between camera and photos
 @IBAction func selectButtonTapped(_ sender: UIButton) {
   if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -39,9 +40,7 @@ var imageUrl: String = ""
      uploadImage(image: selectedImage)
    }
 func uploadImage(image: UIImage) {
-    
-    
-    
+     loadingView.start()
      getBase64Image(image: image) { base64Image in
        // _ = "Boundary-\(UUID().uuidString)"
     
@@ -69,8 +68,9 @@ guard let response = response as? HTTPURLResponse,
                      return
              }
         if let mimeType = response.mimeType, mimeType == "application/json", let data = data, let dataString = String(data: data, encoding: .utf8) {
-         DispatchQueue.main.async {/*  self.loadingView.stop() */
-                           }
+         DispatchQueue.main.async {
+            self.loadingView.stop()
+            }
 
 print("image upload results: \(dataString)")
   let parsedResult: [String: AnyObject]
