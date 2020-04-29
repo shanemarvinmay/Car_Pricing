@@ -57,7 +57,7 @@ task.resume()
              //   let user = welcomeLabel.text!
         // let yr = year.text!
         //POST Request ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
+            let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=jspann&make=\(make)&model=\(model)&year=2016&mpg=\(mpg)&milage=\(mileage)")
             guard let requestURL = url else { fatalError()}
             var request = URLRequest(url: requestURL)
                 request.httpMethod = "POST"

@@ -743,12 +743,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-vD-PJb">
-                                <rect key="frame" x="63" y="314" width="63" height="27"/>
+                                <rect key="frame" x="63" y="314" width="108" height="27"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="EMAIL: ">
+                                    <fragment content="USERNAME: ">
                                         <attributes>
                                             <color key="NSColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="17" name="Papyrus"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -766,7 +767,7 @@
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="arrow.right.circle" catalog="system"/>
                                 <connections>
-                                    <action selector="getQuestion:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="Cn9-ol-gOh"/>
+                                    <action selector="getQuestion:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="9jF-Rm-mU4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-Mo-uRl">
@@ -787,7 +788,7 @@
                                     <color key="titleColor" red="1" green="0.86292568849999995" blue="0.83845893090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <action selector="getLogin:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="dzb-Xl-2Ui"/>
+                                    <action selector="getlogin:" destination="vLQ-PP-6cX" eventType="touchUpInside" id="k0F-KJ-0Q9"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ANSWER" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyT-3S-hff">
@@ -824,7 +825,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="ePA-B1-dz3"/>
                     <connections>
-                        <outlet property="securityQuestion" destination="UGR-lv-yFo" id="mRx-Hl-up6"/>
+                        <outlet property="Go" destination="kpi-9s-xKx" id="QAs-ds-g1p"/>
+                        <outlet property="answer" destination="OyT-3S-hff" id="yIp-iX-e6g"/>
+                        <outlet property="fetch" destination="kxX-no-qZH" id="Qya-UH-njr"/>
+                        <outlet property="securityQuestion" destination="UGR-lv-yFo" id="BqY-6X-geJ"/>
+                        <outlet property="username" destination="HZs-an-cQs" id="Zot-Gu-GWO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44K-Ra-cKN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1026,7 +1031,7 @@
         <image name="trouble" width="540" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DPI-xi-Jr0"/>
+        <segue reference="cJZ-3t-DEV"/>
         <segue reference="VYR-LM-t7G"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.63291164339999995" green="0.4067102447" blue="0.1507934712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
