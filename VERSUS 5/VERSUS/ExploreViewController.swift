@@ -48,15 +48,16 @@ class ExploreViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 task.resume()
 }
     
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBAction func postRequestSect(_ sender: Any) {
           let mpg = validateMPGtextfield.text!
                 let mileage = validateMileagetextfield.text!
                 let make = pickerTextField.text!
                 let model = picker1TextField.text!
-                //let user = username.text!
+                let user = welcomeLabel.text!
         // let yr = year.text!
         //POST Request ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
+            let url = URL(string: "https://vast-gorge-25891.herokuapp.com/save-car-info?username=\(user)u&make=\(make)&model=\(model)&year=y&mpg=\(mpg)&milage=\(mileage)")
             guard let requestURL = url else { fatalError()}
             var request = URLRequest(url: requestURL)
                 request.httpMethod = "POST"
