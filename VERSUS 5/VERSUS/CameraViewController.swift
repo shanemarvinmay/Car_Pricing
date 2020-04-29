@@ -15,8 +15,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 @IBOutlet weak var imageView: UIImageView!
 @IBOutlet weak var valueRequest: UILabel!
 @IBOutlet weak var selectButton: UIButton!
-    
-var selectedImage: UIImage!
+ 
+    var selectedImage: UIImage!
 var imagePicker = UIImagePickerController()
 var loadingView = LoadingView()
 var imageUrl: String = ""
@@ -25,7 +25,21 @@ var imageUrl: String = ""
 super.viewDidLoad()
   loadingView.initilize(viewController: self)
     }
-//Switching between camera and photos
+    
+    
+    //Switching between camera and photos
+    @IBAction func camselectedButtonTapped(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = false
+                imagePicker.modalPresentationStyle = .popover
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    
+    
 @IBAction func selectButtonTapped(_ sender: UIButton) {
   if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
         imagePicker.delegate = self
@@ -35,27 +49,28 @@ super.viewDidLoad()
     present(imagePicker, animated: true, completion: nil)
 }
 }
+    
   
 @IBAction func uploadImageButton(_ sender: Any) {
-     uploadImage(image: selectedImage)
+    uploadImage(imageField: selectedImage)
    }
-func uploadImage(image: UIImage) {
+    
+func uploadImage(imageField: UIImage) {
      loadingView.start()
-     getBase64Image(image: image) { base64Image in
-       let boundary = "Boundary-\(UUID().uuidString)"
+  
+    getBase64Image(imageJPG: imageField) { base64Image in
+      
     
 let url = URL(string:" https://ml-car-value.herokuapp.com/image")
     guard let requestURL = url else { fatalError() }  //Need this for next line to work
         var request = URLRequest(url: requestURL)
         
- request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
    request.httpMethod = "POST"
     
     var setValue = " "
-        setValue += "--\(boundary)\r\n"
-        setValue += "Content-Disposition:form-data; name=\"image\""
-        setValue += "\r\n\r\n\(base64Image ?? "")\r\n"
-        setValue += "--\(boundary)--\r\n"
+        setValue += "name=\"image\""
+        setValue += "\r\n\r\n\(base64Image ?? "imageView")\r\n"
 
     request.httpBody = setValue.data(using: String.Encoding.utf8);
                
@@ -65,15 +80,13 @@ if let error = error {
             print("Did Complete with Error\(error)")
             return
         }
-                      // let errorAlert = UIAlertController(title: "Alert", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "Ok")
-                       //errorAlert.show()
-        
-guard let response = response as? HTTPURLResponse,
-    (200...299).contains(response.statusCode) else {          
-                    print("server error")
+                      
+   if let response = response as? HTTPURLResponse {
+   // (200...299).contains(response.statusCode) {
+        print("server error\(String(describing: response))")
                      return
              }
-        if let mimeType = response.mimeType, mimeType == "application/json", let data = data, let dataString = String(data: data, encoding: .utf8) {
+    if let mimeType = response?.mimeType, mimeType == "application/json", let data = data, let dataString = String(data: data, encoding: .utf8) {
          DispatchQueue.main.async {
             self.loadingView.stop()
             }
@@ -95,9 +108,9 @@ print("image upload results: \(dataString)")
 }.resume()
 }
     }
-        func getBase64Image(image: UIImage, complete: @escaping (String?) -> ()) {
+        func getBase64Image(imageJPG: UIImage, complete: @escaping (String?) -> ()) {
               DispatchQueue.main.async {
-                let imageData = image.pngData()
+                let imageData = imageJPG.jpegData(compressionQuality: 0.2)
                   let base64Image = imageData?.base64EncodedString(options: .lineLength64Characters)
                   complete(base64Image)
               }
@@ -106,9 +119,10 @@ print("image upload results: \(dataString)")
     
                                           //Convert image to data
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-    if let pickedImage = info[.originalImage] as? UIImage {
-                 selectedImage = pickedImage
-                imageView.image = selectedImage
+    if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        imageView.image = originalImage
+        
+           // let parameters = ["image": "car"]
                    }
                  dismiss(animated: true, completion: nil)
     }
@@ -126,132 +140,3 @@ func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     
 }
 
-
-
-
-
-        /* Add this if the above code doesnt work
-                            
-                            
-                            
-                            
-        if let response = response {
-            print(response)
-        }
-                   
-                   if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                   print("Response given by data string:\n\(dataString)")
-                       
-        }
-    }
-                   // let task = session.uploadTask(with: request, from: imageData!)
-               task.resume()
-           
- 
-     
-         }
-           
-    override func viewDidLoad() {
-              super.viewDidLoad()
-               //Convert image to data
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-         if let pickedImage = info[.originalImage] as? UIImage {
-             selectedImage = pickedImage
-             imageView.image = selectedImage
-            }
-         dismiss(animated: true, completion: nil)
-        
-         }
-            
-            
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            dismiss(animated: true, completion: nil)
-        }
-            //Convert Data to base64 encoding
-        func uploadImage() {
-            let imageData = imageView.image!.jpegData(compressionQuality: 1)
-            _ = imageData!.base64EncodedString()
-            if(imageData == nil) { return }
-         
-            
-    }
-    }
-    
-             func getBase64Image(image: UIImage, complete: @escaping (String?) -> ()) {
-                   DispatchQueue.main.async {
-                    let imageData = image.jpegData(compressionQuality: 1.0)
-                       let base64Image = imageData?.base64EncodedString(options: .lineLength64Characters)
-                       complete(base64Image)
-                   }
-               }
-            
-    
-    }
-
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-       
-let imagePickrController = UIImagePickerController()
-    imagePickrController.delegate = self
-        
-    //selection action
-        let actionSheet = UIAlertController(title: "Photo Source", message: "choose a source", preferredStyle: .actionSheet )
-            
-            //Camera Access --------------------------------------- Camera Access
-            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
-            imagePickrController.sourceType = .camera
-        self.present(imagePickrController, animated: true, completion: nil)
-            }
-        else {
-            print("Camera is Unavailable")
-            }
-            }))
-            
-                    //Photo Libary Access ------------------------------------ Photo Library Access
-    actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action: UIAlertAction) in
-    imagePickrController.sourceType = .photoLibrary
-self.present(imagePickrController, animated: true, completion: nil) }))
-    actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-self.present(actionSheet, animated: true, completion: nil)
-        
-   
-         //let image = imageView.image
-        
-           
-*/
